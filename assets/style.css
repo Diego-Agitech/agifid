@@ -149,6 +149,29 @@
   .calendly-embed-wrap { margin-top: 3rem; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
   .calendly-fallback { text-align: center; padding: 2rem; }
 
+  /* Contact form */
+  .contact-form-section { padding: 5.5rem 0; background: var(--offwhite); }
+  .contact-form-section .title { text-align: center; max-width: 560px; margin: 0 auto 2.5rem; }
+  .contact-form-section .title h3 { font-size: 1.9rem; margin-bottom: 0.75rem; }
+  .contact-form-section .title p { color: var(--muted); }
+  .contact-form { max-width: 720px; margin: 0 auto; background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .form-field { margin-bottom: 1.5rem; }
+  .form-field label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .form-field input, .form-field textarea { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1rem; font-family: var(--font-body); font-size: 0.95rem; color: var(--ink); background: var(--white); }
+  .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--violet); }
+  .form-field textarea { resize: vertical; }
+  .contact-form button[type="submit"] { width: 100%; justify-content: center; border: none; cursor: pointer; }
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } .contact-form { padding: 1.75rem; } }
+
+  /* Thank you page */
+  .thank-you-section { padding: 8rem 0; }
+  .thank-you-box { max-width: 560px; margin: 0 auto; text-align: center; }
+  .thank-you-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; border-radius: 50%; background: var(--violet-soft); color: var(--violet); font-size: 1.6rem; display: flex; align-items: center; justify-content: center; }
+  .thank-you-box h1 { font-size: 2rem; margin-bottom: 1rem; }
+  .thank-you-box p { color: var(--muted); margin-bottom: 2rem; }
+  .thank-you-box .btn { margin: 0 0.5rem; }
+
   /* Footer */
   footer { background: var(--black); color: var(--white); padding: 4.5rem 0 1.75rem; }
   footer .row.main-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 3rem; margin-bottom: 3.5rem; }

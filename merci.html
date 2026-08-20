@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — AgiFid</title>
-<meta name="description" content="Réservez un premier échange gratuit avec un expert AgiFid pour parler de votre comptabilité, votre fiscalité ou votre gestion sur Odoo.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fr_BE">
-<meta property="og:title" content="Contact — AgiFid">
-<meta property="og:description" content="Réservez un premier échange gratuit avec un expert AgiFid pour parler de votre comptabilité, votre fiscalité ou votre gestion sur Odoo.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contact — AgiFid">
-<meta name="twitter:description" content="Réservez un premier échange gratuit avec un expert AgiFid pour parler de votre comptabilité, votre fiscalité ou votre gestion sur Odoo.">
+<meta name="robots" content="noindex, nofollow">
+<title>Merci — AgiFid</title>
+<meta name="description" content="Votre message a bien été envoyé à AgiFid. Nous revenons vers vous sous 48h.">
 <link rel="icon" href="https://www.agicompta.be/wp-content/uploads/2025/08/Screenshot-2025-08-18-102425.png">
 <!-- Polices auto-hébergées en base64 dans assets/fonts.css : aucune requête externe -->
 <link rel="stylesheet" href="assets/fonts.css">
@@ -37,65 +31,15 @@
   </div>
 </header>
 
-<section class="talk-section">
-  <div class="container-sm row">
-    <div class="person-img">
-      <img src="https://www.agicompta.be/wp-content/uploads/2025/09/team-mem-7.jpg" alt="Diego" loading="lazy">
-    </div>
-    <div class="content">
-      <h6>Parlons de votre comptabilité</h6>
-      <h4>Premier échange avec un expert sous 48h</h4>
-      <p>Besoin d'un avis franc, d'une estimation budgétaire à la volée ? Choisissez directement un créneau ci-dessous pour un visio call avec moi.</p>
-    </div>
-  </div>
+<section class="thank-you-section">
   <div class="container-sm">
-    <div class="calendly-embed-wrap">
-      <div class="calendly-inline-widget" data-url="https://calendly.com/sam-agitech/25-min-intro" style="min-width:320px;height:700px;"></div>
-      <noscript>
-        <p class="calendly-fallback"><a href="https://calendly.com/sam-agitech/25-min-intro" target="_blank" rel="noopener">Réserver un créneau sur Calendly</a></p>
-      </noscript>
+    <div class="thank-you-box">
+      <div class="thank-you-icon">&#10003;</div>
+      <h1>Merci, votre message a bien été envoyé</h1>
+      <p>Un membre de l'équipe AgiFid revient vers vous sous 48h. En attendant, vous pouvez aussi réserver directement un créneau avec un expert.</p>
+      <a class="btn btn-violet" href="contact.html">Réserver un créneau</a>
+      <a class="btn btn-outline" href="index.html">Retour à l'accueil</a>
     </div>
-  </div>
-</section>
-
-<section class="contact-form-section">
-  <div class="container-sm">
-    <div class="title">
-      <h3>Ou envoyez-nous un message</h3>
-      <p>Décrivez-nous votre besoin, on revient vers vous sous 48h.</p>
-    </div>
-    <!-- TODO: remplacer YOUR_FORM_ID par l'endpoint Formspree réel une fois le compte créé (https://formspree.io/f/XXXXXXX).
-         Le champ _next doit pointer vers l'URL absolue de merci.html sur le domaine final, et être ajouté aux
-         redirections autorisées dans les paramètres du formulaire Formspree. -->
-    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <div class="form-row">
-        <div class="form-field">
-          <label for="cf-name">Nom complet</label>
-          <input type="text" id="cf-name" name="name" required>
-        </div>
-        <div class="form-field">
-          <label for="cf-company">Entreprise</label>
-          <input type="text" id="cf-company" name="company" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" required>
-        </div>
-        <div class="form-field">
-          <label for="cf-phone">Téléphone</label>
-          <input type="tel" id="cf-phone" name="phone" required>
-        </div>
-      </div>
-      <div class="form-field">
-        <label for="cf-message">Message (optionnel)</label>
-        <textarea id="cf-message" name="message" rows="4"></textarea>
-      </div>
-      <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
-      <input type="hidden" name="_next" value="merci.html">
-      <button type="submit" class="btn btn-violet">Envoyer</button>
-    </form>
   </div>
 </section>
 
@@ -146,7 +90,9 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Suivi de conversion : ajouter ici le tag Google Ads / GA4 / Meta Pixel une fois les identifiants fournis.
+     Cette page ne doit être atteinte qu'après une soumission réussie du formulaire de contact (voir contact.html),
+     ce qui en fait le point de mesure fiable pour une conversion "demande de contact". -->
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
