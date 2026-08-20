@@ -93,7 +93,7 @@
         <textarea id="cf-message" name="message" rows="4"></textarea>
       </div>
       <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
-      <input type="hidden" name="_next" value="merci.html">
+      <input type="hidden" name="_next" value="merci.html?src=form">
       <button type="submit" class="btn btn-violet">Envoyer</button>
     </form>
   </div>
@@ -152,6 +152,15 @@
   const mainMenu = document.getElementById('mainMenu');
   burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
   document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
+
+  // Le widget Calendly embarqué a sa propre confirmation dans l'iframe : sans ceci,
+  // une réservation ne passe jamais par merci.html et n'est donc jamais trackée.
+  window.addEventListener('message', (e) => {
+    if (e.origin !== 'https://calendly.com') return;
+    if (e.data && e.data.event === 'calendly.event_scheduled') {
+      window.location.href = 'merci.html?src=calendly';
+    }
+  });
 </script>
 </body>
 </html>

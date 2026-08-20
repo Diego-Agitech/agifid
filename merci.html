@@ -91,8 +91,10 @@
 </footer>
 
 <!-- Suivi de conversion : ajouter ici le tag Google Ads / GA4 / Meta Pixel une fois les identifiants fournis.
-     Cette page ne doit être atteinte qu'après une soumission réussie du formulaire de contact (voir contact.html),
-     ce qui en fait le point de mesure fiable pour une conversion "demande de contact". -->
+     Cette page n'est atteinte qu'après une soumission réussie du formulaire OU une réservation Calendly
+     terminée (voir contact.html), ce qui en fait le point de mesure fiable pour ces deux conversions.
+     Le paramètre ?src=form ou ?src=calendly dans l'URL (new URLSearchParams(location.search).get('src'))
+     permet de distinguer les deux dans le tag si besoin d'un suivi séparé. -->
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
