@@ -94,6 +94,13 @@
       </div>
       <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
       <input type="hidden" name="_next" value="merci.html?src=form">
+      <!-- TODO: reCAPTCHA v2 (comme sur agicompta.be/fr_be/contact-us/) : créer un site key propre au domaine
+           final sur https://www.google.com/recaptcha/admin (le site key du site modèle est lié à SON domaine
+           et ne fonctionnera pas ici), puis remplacer YOUR_RECAPTCHA_SITE_KEY ci-dessous. Activer aussi la
+           vérification reCAPTCHA dans les paramètres du formulaire Formspree (site key + secret key). -->
+      <div class="form-field">
+        <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+      </div>
       <button type="submit" class="btn btn-violet">Envoyer</button>
     </form>
   </div>
@@ -147,18 +154,30 @@
 </footer>
 
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
   burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
   document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
 
-  // Le widget Calendly embarqué a sa propre confirmation dans l'iframe : sans ceci,
-  // une réservation ne passe jamais par merci.html et n'est donc jamais trackée.
   window.addEventListener('message', (e) => {
-    if (e.origin !== 'https://calendly.com') return;
-    if (e.data && e.data.event === 'calendly.event_scheduled') {
+    if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
+
+    // Le widget Calendly embarqué a sa propre confirmation dans l'iframe : sans ceci,
+    // une réservation ne passe jamais par merci.html et n'est donc jamais trackée.
+    if (e.data.event === 'calendly.event_scheduled') {
       window.location.href = 'merci.html?src=calendly';
+    }
+
+    // Calendly embarque une hauteur fixe par défaut, ce qui crée un scroll interne à
+    // l'iframe (une "page dans la page"). On resynchronise la hauteur du widget sur
+    // le contenu réel envoyé par Calendly pour que seule la page défile.
+    if (e.data.event === 'calendly.page_height') {
+      const widget = document.querySelector('.calendly-inline-widget');
+      if (widget && e.data.payload && e.data.payload.height) {
+        widget.style.height = e.data.payload.height + 'px';
+      }
     }
   });
 </script>
