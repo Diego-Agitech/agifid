@@ -113,8 +113,8 @@
 
   /* Header */
   header { position: sticky; top: 0; z-index: 100; background: rgba(20,20,20,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-onDark); }
-  .header-wrap { display: flex; align-items: center; justify-content: space-between; padding: 0.65rem 0; }
-  .logo img { height: 76px; width: auto; }
+  .header-wrap { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
+  .logo img { height: 104px; width: auto; }
   .main_menu { display: flex; align-items: center; gap: 2.5rem; }
   .main_menu ul { display: flex; gap: 2rem; }
   .main_menu ul a { color: var(--muted-onDark); font-size: 0.92rem; transition: color 0.2s; }
@@ -140,6 +140,7 @@
   .certified-experts-section h6 { color: var(--violet); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
   .certified-experts-section h3 { font-size: 1.9rem; margin-bottom: 2.5rem; }
   .experts-slider { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem; scroll-snap-type: x mandatory; }
+  @media (min-width: 1000px) { .experts-slider { justify-content: center; } }
   .experts-slider::-webkit-scrollbar { height: 6px; }
   .experts-slider::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
   .expert-member { flex: 0 0 220px; scroll-snap-align: start; }
