@@ -39,7 +39,7 @@
 
   /* Header */
   header { position: sticky; top: 0; z-index: 100; background: rgba(20,20,20,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-onDark); }
-  .header-wrap { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; }
+  .header-wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; padding-bottom: 0.75rem; }
   .logo img { height: 46px; width: auto; }
   .main_menu { display: flex; align-items: center; gap: 2.5rem; }
   .main_menu ul { display: flex; gap: 2rem; }
