@@ -1,6 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --black: #141414;
+    --black: #1d1d1d;
     --dark: #1a1a1a;
     --dark2: #202020;
     --card-dark: #232323;
@@ -16,7 +16,7 @@
     --border: rgba(20,20,20,0.09);
     --border-onDark: rgba(255,255,255,0.1);
     --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
   }
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); color: var(--ink); background: var(--white); line-height: 1.6; overflow-x: hidden; }
@@ -39,7 +39,7 @@
 
   /* Header */
   header { position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-onDark); }
-  header::before { content: ''; position: absolute; inset: 0; background: rgba(20,20,20,0.85); backdrop-filter: blur(12px); z-index: -1; }
+  header::before { content: ''; position: absolute; inset: 0; background: rgba(29,29,29,0.85); backdrop-filter: blur(12px); z-index: -1; }
   .header-wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; padding-bottom: 0.75rem; }
   .logo img { height: 46px; width: auto; }
   .main_menu { display: flex; align-items: center; gap: 2.5rem; }
