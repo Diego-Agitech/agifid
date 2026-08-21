@@ -31,8 +31,8 @@
 
   /* Buttons */
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.8rem; border-radius: 100px; font-weight: 500; font-size: 0.95rem; transition: all 0.25s ease; }
-  .btn-light { background: var(--white); color: var(--black); }
-  .btn-light:hover { background: var(--violet-light); color: var(--white); transform: translateY(-2px); }
+  .btn-light { background: transparent; color: var(--white); border: 1px solid var(--white); }
+  .btn-light:hover { background: var(--violet); border-color: var(--violet); color: var(--white); transform: translateY(-2px); }
   .btn-violet { background: var(--violet); color: var(--white); }
   .btn-violet:hover { background: var(--violet-light); transform: translateY(-2px); }
   .btn-outline { border: 1.5px solid var(--border); color: var(--ink); }
