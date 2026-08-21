@@ -481,9 +481,10 @@
       <div class="item">
         <div class="content">
           <h6>Abonnez-vous à notre newsletter</h6>
-          <!-- Formulaire visuel : à connecter à un service d'emailing (Brevo, Mailchimp...) puisque le plugin WordPress Newsletter n'est plus disponible hors WP -->
-          <form class="tnp-subscription" action="#" onsubmit="return false;">
-            <input class="tnp-email" type="email" placeholder="Votre email" required>
+          <!-- Envoi via Formspree (même endpoint que le formulaire de contact, sujet distinct pour filtrer). Pas de vraie gestion de liste/désabonnement : pour un vrai outil newsletter, prévoir Brevo/Mailchimp plus tard. -->
+          <form class="tnp-subscription" action="https://formspree.io/f/moearzwo" method="POST">
+            <input class="tnp-email" type="email" name="email" placeholder="Votre email" required>
+            <input type="hidden" name="_subject" value="Newsletter signup - AgiFid">
             <button class="tnp-submit" type="submit">→</button>
           </form>
         </div>
