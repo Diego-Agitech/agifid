@@ -186,13 +186,13 @@
   footer { background: var(--black); color: var(--white); padding: 4.5rem 0 1.75rem; }
   footer .row.main-row { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 3rem; margin-bottom: 3.5rem; }
   .ft-logo img { height: 26px; margin-bottom: 1.5rem; }
-  footer .content h6 { font-size: 0.95rem; margin-bottom: 1rem; font-weight: 500; }
+  footer .content h6 { font-family: var(--font-body); font-size: 0.95rem; margin-bottom: 1rem; font-weight: 500; }
   .tnp-subscription form { display: flex; border-bottom: 1px solid var(--border-onDark); max-width: 280px; }
   .tnp-email { background: none; border: none; color: var(--white); font-family: var(--font-body); padding: 0.6rem 0; flex: 1; font-size: 0.9rem; }
   .tnp-email::placeholder { color: var(--muted-onDark); }
   .tnp-submit { background: none; border: none; color: var(--violet-light); font-size: 1.1rem; cursor: pointer; padding: 0.6rem 0.5rem; }
   .top-text h5 { font-size: 1.05rem; margin-bottom: 1.5rem; font-weight: 500; }
-  .content .address h6 { font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500; }
+  .content .address h6 { font-family: var(--font-body); font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500; }
   .address p { color: var(--muted-onDark); font-size: 0.88rem; margin: 0; }
   .address p + p { margin-top: 0.15rem; }
   .social-icons { display: flex; gap: 0.9rem; margin-top: 1.5rem; }
