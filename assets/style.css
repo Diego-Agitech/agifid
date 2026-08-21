@@ -147,19 +147,20 @@
   .talk-section h6 { color: var(--violet); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
   .talk-section h4 { font-size: 1.75rem; margin-bottom: 1.1rem; }
   .talk-section p { color: var(--muted); margin-bottom: 1.75rem; max-width: 480px; }
-  .calendly-embed-wrap { margin-top: 3rem; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+  .calendly-embed-wrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
   .calendly-fallback { text-align: center; padding: 2rem; }
 
   /* Contact page hero (2 colonnes, inspiré d'agitech.io/contact-us/) */
   .contact-hero { padding: 4.5rem 0 6rem; }
-  .contact-hero-row { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: start; }
-  .contact-hero-content h2 { font-size: 2.3rem; margin-bottom: 1.5rem; }
-  .contact-hero-content h2 span { color: var(--violet); text-decoration: underline; text-decoration-color: var(--violet-soft); text-underline-offset: 6px; }
+  .contact-hero-intro { max-width: 640px; margin-bottom: 3rem; }
+  .contact-hero-intro h2 { font-size: 2.3rem; margin-bottom: 1.5rem; }
+  .contact-hero-intro h2 span { color: var(--violet); text-decoration: underline; text-decoration-color: var(--violet-soft); text-underline-offset: 6px; }
   .trust-list { margin-bottom: 2.5rem; }
   .trust-list li { color: var(--ink); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.6rem; padding-left: 1.6rem; position: relative; }
   .trust-list li::before { content: '✓'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
-  .contact-hero-content h5 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-  .contact-hero-content > p { color: var(--muted); margin-bottom: 1.5rem; }
+  .contact-hero-intro h5 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .contact-hero-intro > p { color: var(--muted); margin-bottom: 0; }
+  .contact-hero-row { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: start; }
 
   /* Card formulaire */
   .contact-card { background: var(--offwhite); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
