@@ -58,8 +58,8 @@
   .home-banner::after { content:''; position:absolute; width:600px; height:600px; background: radial-gradient(circle, rgba(123,63,152,0.18) 0%, transparent 70%); top:-200px; right:-150px; pointer-events:none; }
   .home-banner .row { position: relative; z-index: 2; }
   .home-banner h6 { color: var(--muted-onDark); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.25rem; text-transform: uppercase; }
-  .home-banner h2 { font-size: clamp(2.4rem, 4.8vw, 4rem); line-height: 1.08; max-width: 680px; margin-bottom: 2.25rem; }
-  .home-banner h2 span { color: var(--violet-light); }
+  .home-banner h1 { font-size: clamp(2.4rem, 4.8vw, 4rem); line-height: 1.08; max-width: 680px; margin-bottom: 2.25rem; }
+  .home-banner h1 span { color: var(--violet-light); }
 
   /* Experts */
   .certified-experts-section { padding: 5rem 0; background: var(--white); }
@@ -152,8 +152,8 @@
   /* Contact page hero (2 colonnes, inspiré d'agitech.io/contact-us/) */
   .contact-hero { padding: 4.5rem 0 6rem; }
   .contact-hero-row { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: start; }
-  .contact-hero-content h2 { font-size: 2.3rem; margin-bottom: 1.5rem; }
-  .contact-hero-content h2 span { color: var(--violet); text-decoration: underline; text-decoration-color: var(--violet-soft); text-underline-offset: 6px; }
+  .contact-hero-content h1 { font-size: 2.3rem; margin-bottom: 1.5rem; }
+  .contact-hero-content h1 span { color: var(--violet); text-decoration: underline; text-decoration-color: var(--violet-soft); text-underline-offset: 6px; }
   .trust-list { margin-bottom: 2.5rem; }
   .trust-list li { color: var(--ink); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.6rem; padding-left: 1.6rem; position: relative; }
   .trust-list li::before { content: '✓'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }
