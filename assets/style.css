@@ -191,9 +191,9 @@
   .tnp-email::placeholder { color: var(--muted-onDark); }
   .tnp-submit { background: none; border: none; color: var(--violet-light); font-size: 1.1rem; cursor: pointer; padding: 0.6rem 0.5rem; }
   .top-text h5 { font-size: 1.05rem; margin-bottom: 1.5rem; font-weight: 500; }
-  .address h6 { font-size: 0.9rem; margin-bottom: 0.5rem; font-weight: 500; }
-  .address p { color: var(--muted-onDark); font-size: 0.88rem; }
-  .address p + p { margin-top: 0.4rem; }
+  .content .address h6 { font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500; }
+  .address p { color: var(--muted-onDark); font-size: 0.88rem; margin: 0; }
+  .address p + p { margin-top: 0.15rem; }
   .social-icons { display: flex; gap: 0.9rem; margin-top: 1.5rem; }
   .social-icons img { width: 18px; height: 18px; filter: invert(1); opacity: 0.75; transition: 0.2s; }
   .social-icons a:hover img { opacity: 1; }
