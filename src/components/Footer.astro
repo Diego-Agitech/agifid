@@ -1,0 +1,82 @@
+---
+export interface Props {
+  lang: 'fr' | 'en';
+  /** 'home' = index.html / index-en.html. 'sub' = any other page (nav anchors point back to index.html). */
+  pageType: 'home' | 'sub';
+}
+const { lang, pageType } = Astro.props;
+
+const strings = {
+  fr: {
+    newsletter: 'Abonnez-vous à notre newsletter', emailPlaceholder: 'Votre email',
+    newsletterSubject: 'Newsletter signup - AgiFid',
+    tagline: 'Fiduciaire 100% dédiée aux sociétés sur Odoo',
+    why: 'Pourquoi nous', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech',
+    nav: 'Navigation', whyAnchor: 'pourquoi',
+    rights: '© 2026 AgiFid. Tous droits réservés.',
+    privacy: 'Politique de Confidentialité', terms: 'Termes et Conditions',
+  },
+  en: {
+    newsletter: 'Subscribe to our newsletter', emailPlaceholder: 'Your email',
+    newsletterSubject: 'Newsletter signup (EN) - AgiFid',
+    tagline: 'Accounting firm 100% dedicated to companies on Odoo',
+    why: 'Why us', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech',
+    nav: 'Navigation', whyAnchor: 'why',
+    rights: '© 2026 AgiFid. All rights reserved.',
+    privacy: 'Privacy Policy', terms: 'Terms and Conditions',
+  },
+}[lang];
+
+const base = pageType === 'home' ? '' : 'index.html';
+---
+<div class="brand-bar"></div>
+<footer>
+  <div class="container">
+    <div class="row main-row">
+      <div class="item">
+        <div class="content">
+          <h6>{strings.newsletter}</h6>
+          <!-- Sent via Formspree (dedicated newsletter endpoint, separate from the contact form).
+               No real list/unsubscribe management - a proper emailing tool (Brevo/Mailchimp) should replace this later. -->
+          <form class="tnp-subscription" action="https://formspree.io/f/xeajdqgr" method="POST">
+            <input class="tnp-email" type="email" name="email" placeholder={strings.emailPlaceholder} required>
+            <input type="hidden" name="_subject" value={strings.newsletterSubject}>
+            <button class="tnp-submit" type="submit">→</button>
+          </form>
+        </div>
+      </div>
+      <div class="item">
+        <div class="top-text"><h5>{strings.tagline}</h5></div>
+        <div class="content">
+          <div class="address">
+            <h6>Mfinances</h6>
+            <p>11 Clos Lucien Outers, 1160</p>
+            <p>Brussels, Belgium</p>
+            <p>TVA BE 0827635870</p>
+          </div>
+        </div>
+      </div>
+      <div class="item ft-links">
+        <div class="content">
+          <h6>{strings.nav}</h6>
+          <ul>
+            <li><a href={`${base}#${strings.whyAnchor}`}>{strings.why}</a></li>
+            <li><a href={`${base}#services`}>{strings.services}</a></li>
+            <li><a href={`${base}#contact`}>{strings.contact}</a></li>
+            <li><span class="disabled-link">{strings.blog}</span></li>
+            <li><a href="https://agitech.io" target="_blank" rel="noopener">{strings.agitech}</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/agitechbelgium/" target="_blank" rel="noopener"><img src="assets/img/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.youtube.com/@Agitech-OdooPartner" target="_blank" rel="noopener"><img src="assets/img/youtube.svg" alt="YouTube"></a>
+            <a href="https://wa.me/32460241589" target="_blank" rel="noopener"><img src="assets/img/whatsap.svg" alt="WhatsApp"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copy-right">
+      <p>{strings.rights}</p>
+      <p class="privacy-links"><a href="https://www.agicompta.be/fr_be/privacy-policy/">{strings.privacy}</a>&nbsp;|&nbsp;<a href="https://www.agicompta.be/fr_be/terms-conditions/">{strings.terms}</a></p>
+    </div>
+  </div>
+</footer>

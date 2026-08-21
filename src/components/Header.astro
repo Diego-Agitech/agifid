@@ -1,0 +1,45 @@
+---
+export interface Props {
+  lang: 'fr' | 'en';
+  /** 'home' = index.html / index-en.html (in-page anchors). 'sub' = any other page (anchors point back to index.html). */
+  pageType: 'home' | 'sub';
+}
+const { lang, pageType } = Astro.props;
+
+const strings = {
+  fr: { why: 'Pourquoi nous', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech', discuss: 'Discutons', whyAnchor: 'pourquoi' },
+  en: { why: 'Why us', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech', discuss: "Let's talk", whyAnchor: 'why' },
+}[lang];
+
+// On a sub-page (e.g. merci-formulaire.html) there is no per-language anchor target,
+// so nav links always point back to the French homepage's sections.
+const base = pageType === 'home' ? '' : 'index.html';
+const logoHref = pageType === 'home' ? (lang === 'en' ? 'index-en.html' : 'index.html') : 'index.html';
+---
+<header>
+  <div class="container header-wrap">
+    <a class="logo" href={logoHref}>
+      <img src="assets/img/logo-agifid.png" alt="Agifid">
+    </a>
+    <nav class="main_menu" id="mainMenu">
+      <ul>
+        <li><a href={`${base}#${strings.whyAnchor}`}>{strings.why}</a></li>
+        <li><a href={`${base}#services`}>{strings.services}</a></li>
+        <li><a href={`${base}#contact`}>{strings.contact}</a></li>
+        <li><span class="disabled-link">{strings.blog}</span></li>
+        <li><a href="https://agitech.io" target="_blank" rel="noopener">{strings.agitech}</a></li>
+      </ul>
+      {pageType === 'home' && (
+        <div class="lang-flag">
+          {lang === 'fr' ? (
+            <><span class="active">FR</span> / <a href="index-en.html">EN</a></>
+          ) : (
+            <><a href="index.html">FR</a> / <span class="active">EN</span></>
+          )}
+        </div>
+      )}
+      <div class="discuss-btn"><a href={`${base}#contact`}>{strings.discuss}</a></div>
+    </nav>
+    <div class="lines-button" id="burgerBtn"><span class="lines"></span></div>
+  </div>
+</header>

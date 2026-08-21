@@ -1,0 +1,120 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  htmlLang: string;
+  lang: 'fr' | 'en';
+  pageType: 'home' | 'sub';
+  title: string;
+  description: string;
+  /** Omit on noindex utility pages (thank-you pages): skips canonical/hreflang/OG/Twitter/JSON-LD. */
+  canonical?: string;
+  ogLocale?: string;
+  jsonLd?: Record<string, unknown>;
+  robotsNoIndex?: boolean;
+  /** Calendly widget + reCAPTCHA v3 + the postMessage listener - only needed on pages with the contact form. */
+  includeContactScripts?: boolean;
+}
+
+const {
+  htmlLang, lang, pageType, title, description,
+  canonical, ogLocale, jsonLd, robotsNoIndex = false,
+  includeContactScripts = false,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={htmlLang}>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{robotsNoIndex && <meta name="robots" content="noindex, nofollow">}
+<title>{title}</title>
+<meta name="description" content={description}>
+{canonical && (
+  <>
+    <link rel="canonical" href={canonical}>
+    <link rel="alternate" hreflang="fr" href="https://agifid.be/">
+    <link rel="alternate" hreflang="en" href="https://agifid.be/index-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://agifid.be/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content={ogLocale}>
+    <meta property="og:url" content={canonical}>
+    <meta property="og:site_name" content="AgiFid">
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content="https://agifid.be/assets/img/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:image" content="https://agifid.be/assets/img/og-image.png">
+  </>
+)}
+<link rel="icon" href="assets/img/Screenshot-2025-08-18-102425.png">
+{jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+<!-- Fonts self-hosted as base64 in assets/fonts.css: no external request -->
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<Header lang={lang} pageType={pageType} />
+
+<slot />
+
+<Footer lang={lang} pageType={pageType} />
+
+{includeContactScripts && (
+  <>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL" async defer></script>
+  </>
+)}
+<script>
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mainMenu = document.getElementById('mainMenu');
+  burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
+  document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
+</script>
+{includeContactScripts && (
+  <script is:inline>
+    const RECAPTCHA_SITEKEY = '6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL';
+    window.addEventListener('message', (e) => {
+      if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
+
+      // The embedded Calendly widget has its own confirmation inside the iframe: without this,
+      // a booking never goes through a thank-you page and is never tracked.
+      if (e.data.event === 'calendly.event_scheduled') {
+        window.location.href = 'merci-rdv.html';
+      }
+
+      // Calendly defaults to a fixed height, which creates a scroll inside the iframe (a
+      // "page inside the page"). Resync the widget's height to its real content so only
+      // the page itself scrolls.
+      if (e.data.event === 'calendly.page_height') {
+        const widget = document.querySelector('.calendly-inline-widget');
+        if (widget && e.data.payload && e.data.payload.height) {
+          widget.style.height = e.data.payload.height + 'px';
+        }
+      }
+    });
+
+    // reCAPTCHA v3: generates an invisible token on submit, sets it in the hidden field, then submits.
+    document.querySelectorAll('.contact-form').forEach((contactForm) => {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        grecaptcha.ready(() => {
+          grecaptcha.execute(RECAPTCHA_SITEKEY, { action: 'contact' }).then((token) => {
+            const field = contactForm.querySelector('input[name="g-recaptcha-response"]');
+            if (field) field.value = token;
+            contactForm.submit();
+          });
+        });
+      });
+    });
+  </script>
+)}
+</body>
+</html>
