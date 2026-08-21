@@ -1,75 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AgiFid — Accounting firm 100% dedicated to companies on Odoo</title>
-<meta name="description" content="AgiFid, a certified ITAA accounting firm, and Agitech, a certified Odoo integrator: accounting, tax, payroll & HR and financial advisory for companies running their business on Odoo.">
-<link rel="canonical" href="https://agifid.be/index-en.html">
-<link rel="alternate" hreflang="fr" href="https://agifid.be/">
-<link rel="alternate" hreflang="en" href="https://agifid.be/index-en.html">
-<link rel="alternate" hreflang="x-default" href="https://agifid.be/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_GB">
-<meta property="og:url" content="https://agifid.be/index-en.html">
-<meta property="og:site_name" content="AgiFid">
-<meta property="og:title" content="AgiFid — Accounting firm 100% dedicated to companies on Odoo">
-<meta property="og:description" content="AgiFid, a certified ITAA accounting firm, and Agitech, a certified Odoo integrator: accounting, tax, payroll & HR and financial advisory for companies running their business on Odoo.">
-<meta property="og:image" content="https://agifid.be/assets/img/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AgiFid — Accounting firm 100% dedicated to companies on Odoo">
-<meta name="twitter:description" content="AgiFid, a certified ITAA accounting firm, and Agitech, a certified Odoo integrator: accounting, tax, payroll & HR and financial advisory for companies running their business on Odoo.">
-<meta name="twitter:image" content="https://agifid.be/assets/img/og-image.png">
-<link rel="icon" href="assets/img/Screenshot-2025-08-18-102425.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AccountingService",
-  "name": "AgiFid",
-  "url": "https://agifid.be/index-en.html",
-  "description": "Certified ITAA accounting firm, 100% dedicated to companies running their accounting, tax and management on Odoo.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "11 Clos Lucien Outers",
-    "postalCode": "1160",
-    "addressLocality": "Brussels",
-    "addressCountry": "BE"
+---
+import Layout from '../layouts/Layout.astro';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AccountingService',
+  name: 'AgiFid',
+  url: 'https://agifid.be/index-en.html',
+  description: 'Certified ITAA accounting firm, 100% dedicated to companies running their accounting, tax and management on Odoo.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '11 Clos Lucien Outers',
+    postalCode: '1160',
+    addressLocality: 'Brussels',
+    addressCountry: 'BE',
   },
-  "areaServed": "BE",
-  "sameAs": [
-    "https://www.linkedin.com/company/agitechbelgium/",
-    "https://www.youtube.com/@Agitech-OdooPartner"
-  ]
-}
-</script>
-<!-- Fonts self-hosted as base64 in assets/fonts.css: no external request -->
-<link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-
-<header>
-  <div class="container header-wrap">
-    <a class="logo" href="index-en.html">
-      <img src="assets/img/logo-agifid.png" alt="Agifid">
-    </a>
-    <nav class="main_menu" id="mainMenu">
-      <ul>
-        <li><a href="#why">Why us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><span class="disabled-link">Blog</span></li>
-            <li><a href="https://agitech.io" target="_blank" rel="noopener">Agitech</a></li>
-      </ul>
-      <div class="lang-flag"><a href="index.html">FR</a> / <span class="active">EN</span></div>
-      <div class="discuss-btn"><a href="#contact">Let's talk</a></div>
-    </nav>
-    <div class="lines-button" id="burgerBtn"><span class="lines"></span></div>
-  </div>
-</header>
-
+  areaServed: 'BE',
+  sameAs: [
+    'https://www.linkedin.com/company/agitechbelgium/',
+    'https://www.youtube.com/@Agitech-OdooPartner',
+  ],
+};
+---
+<Layout
+  htmlLang="en"
+  lang="en"
+  pageType="home"
+  title="AgiFid — Accounting firm 100% dedicated to companies on Odoo"
+  description="AgiFid, a certified ITAA accounting firm, and Agitech, a certified Odoo integrator: accounting, tax, payroll & HR and financial advisory for companies running their business on Odoo."
+  canonical="https://agifid.be/index-en.html"
+  ogLocale="en_GB"
+  jsonLd={jsonLd}
+  includeContactScripts
+>
 <section class="home-banner">
   <div class="container row">
     <h6>98 companies already trust us</h6>
@@ -468,94 +430,4 @@
     </div>
   </div>
 </section>
-
-<div class="brand-bar"></div>
-<footer>
-  <div class="container">
-    <div class="row main-row">
-      <div class="item">
-        <div class="content">
-          <h6>Subscribe to our newsletter</h6>
-          <!-- Sent via Formspree (same endpoint as the contact form, distinct subject to filter). No real list/unsubscribe management - a proper emailing tool (Brevo/Mailchimp) should replace this later. -->
-          <form class="tnp-subscription" action="https://formspree.io/f/xeajdqgr" method="POST">
-            <input class="tnp-email" type="email" name="email" placeholder="Your email" required>
-            <input type="hidden" name="_subject" value="Newsletter signup (EN) - AgiFid">
-            <button class="tnp-submit" type="submit">→</button>
-          </form>
-        </div>
-      </div>
-      <div class="item">
-        <div class="top-text"><h5>Accounting firm 100% dedicated to companies on Odoo</h5></div>
-        <div class="content">
-          <div class="address">
-            <h6>Mfinances</h6>
-            <p>11 Clos Lucien Outers, 1160</p>
-            <p>Brussels, Belgium</p>
-            <p>TVA BE 0827635870</p>
-          </div>
-        </div>
-      </div>
-      <div class="item ft-links">
-        <div class="content">
-          <h6>Navigation</h6>
-          <ul>
-            <li><a href="#why">Why us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><span class="disabled-link">Blog</span></li>
-            <li><a href="https://agitech.io" target="_blank" rel="noopener">Agitech</a></li>
-          </ul>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/agitechbelgium/" target="_blank" rel="noopener"><img src="assets/img/linkedin.svg" alt="LinkedIn"></a>
-            <a href="https://www.youtube.com/@Agitech-OdooPartner" target="_blank" rel="noopener"><img src="assets/img/youtube.svg" alt="YouTube"></a>
-            <a href="https://wa.me/32460241589" target="_blank" rel="noopener"><img src="assets/img/whatsap.svg" alt="WhatsApp"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="copy-right">
-      <p>&copy; 2026 AgiFid. All rights reserved.</p>
-      <p class="privacy-links"><a href="https://www.agicompta.be/fr_be/privacy-policy/">Privacy Policy</a> &nbsp;|&nbsp; <a href="https://www.agicompta.be/fr_be/terms-conditions/">Terms and Conditions</a></p>
-    </div>
-  </div>
-</footer>
-
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL" async defer></script>
-<script>
-  const burgerBtn = document.getElementById('burgerBtn');
-  const mainMenu = document.getElementById('mainMenu');
-  burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
-  document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
-
-  // reCAPTCHA v3: generates an invisible token on submit, sets it in the hidden field, then submits.
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      grecaptcha.ready(() => {
-        grecaptcha.execute('6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL', { action: 'contact' }).then((token) => {
-          document.getElementById('g-recaptcha-response-en').value = token;
-          contactForm.submit();
-        });
-      });
-    });
-  }
-
-  window.addEventListener('message', (e) => {
-    if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
-
-    if (e.data.event === 'calendly.event_scheduled') {
-      window.location.href = 'merci-rdv.html';
-    }
-
-    if (e.data.event === 'calendly.page_height') {
-      const widget = document.querySelector('.calendly-inline-widget');
-      if (widget && e.data.payload && e.data.payload.height) {
-        widget.style.height = e.data.payload.height + 'px';
-      }
-    }
-  });
-</script>
-</body>
-</html>
+</Layout>
