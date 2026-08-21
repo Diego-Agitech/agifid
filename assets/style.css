@@ -153,8 +153,8 @@
   /* Contact page hero (2 colonnes, inspiré d'agitech.io/contact-us/) */
   .contact-hero { padding: 4.5rem 0 6rem; }
   .contact-hero-row { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: start; }
-  .contact-hero-content h1 { font-size: 2.3rem; margin-bottom: 1.5rem; }
-  .contact-hero-content h1 span { color: var(--violet); text-decoration: underline; text-decoration-color: var(--violet-soft); text-underline-offset: 6px; }
+  .contact-hero-content h2 { font-size: 2.3rem; margin-bottom: 1.5rem; }
+  .contact-hero-content h2 span { color: var(--violet); text-decoration: underline; text-decoration-color: var(--violet-soft); text-underline-offset: 6px; }
   .trust-list { margin-bottom: 2.5rem; }
   .trust-list li { color: var(--ink); font-size: 0.95rem; font-weight: 500; margin-bottom: 0.6rem; padding-left: 1.6rem; position: relative; }
   .trust-list li::before { content: '✓'; position: absolute; left: 0; color: var(--violet); font-weight: 700; }

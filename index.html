@@ -56,10 +56,10 @@
       <ul>
         <li><a href="#pourquoi">Pourquoi nous</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
         <li><a href="https://www.agicompta.be/fr_be/blog/">Blog</a></li>
       </ul>
-      <div class="discuss-btn"><a href="contact.html">Discutons</a></div>
+      <div class="discuss-btn"><a href="#contact">Discutons</a></div>
     </nav>
     <div class="lines-button" id="burgerBtn"><span class="lines"></span></div>
   </div>
@@ -70,7 +70,7 @@
   <div class="container row">
     <h6>98 entreprises nous font déjà confiance</h6>
     <h1>Fiduciaire <span>100% dédiée</span><br>aux sociétés sur Odoo</h1>
-    <a class="btn btn-light" href="contact.html">Parler à un expert</a>
+    <a class="btn btn-light" href="#contact">Parler à un expert</a>
   </div>
 </section>
 
@@ -209,7 +209,7 @@
     </div>
     <div class="our-services-content">
       <div class="item">
-        <a class="item-wrap" href="contact.html">
+        <a class="item-wrap" href="#contact">
           <h4>Management company</h4>
           <ul>
             <li>✓ Comptes annuels &amp; dépôt BNB</li>
@@ -226,7 +226,7 @@
         </a>
       </div>
       <div class="item">
-        <a class="item-wrap" href="contact.html">
+        <a class="item-wrap" href="#contact">
           <h4>1 à 5 ETP</h4>
           <ul>
             <li>✓ Comptes annuels &amp; dépôt BNB</li>
@@ -243,7 +243,7 @@
         </a>
       </div>
       <div class="item">
-        <a class="item-wrap" href="contact.html">
+        <a class="item-wrap" href="#contact">
           <h4>Plus de 5 ETP</h4>
           <ul>
             <li>✓ Comptes annuels &amp; dépôt BNB</li>
@@ -363,7 +363,7 @@
       </div>
     </div>
     <div class="primary-btn">
-      <a class="btn btn-violet" href="contact.html">Prendre rendez-vous</a>
+      <a class="btn btn-violet" href="#contact">Prendre rendez-vous</a>
     </div>
   </div>
 </section>
@@ -406,16 +406,68 @@
   </div>
 </section>
 
-<section class="talk-section">
-  <div class="container-sm row">
-    <div class="person-img">
-      <img src="assets/img/team-mem-7.jpg" alt="Diego" loading="lazy">
+<section class="contact-hero" id="contact">
+  <div class="container contact-hero-row">
+    <div class="contact-hero-content">
+      <h2>Discutons de votre <span>comptabilité</span></h2>
+      <ul class="trust-list">
+        <li>98 entreprises nous font déjà confiance</li>
+        <li>Partenaire Odoo Silver</li>
+        <li>Membre agréé ITAA</li>
+      </ul>
+
+      <h5>Vous préférez discuter en direct ?</h5>
+      <p>Pas de blabla commercial : vous parlez directement avec un expert AgiFid.</p>
+
+      <div class="calendly-embed-wrap">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/sam-agitech/25-min-intro?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+        <noscript>
+          <p class="calendly-fallback"><a href="https://calendly.com/sam-agitech/25-min-intro" target="_blank" rel="noopener">Réserver un créneau sur Calendly</a></p>
+        </noscript>
+      </div>
     </div>
-    <div class="content">
-      <h6>Parlons de votre comptabilité</h6>
-      <h4>Premier échange avec un expert sous 48h</h4>
-      <p>Besoin d'un avis franc, d'une estimation budgétaire à la volée ? Vous pouvez directement réserver un visio call avec moi via le lien ci-dessous.</p>
-      <a class="btn btn-violet" href="contact.html">Discuter avec Diego</a>
+
+    <div class="contact-card">
+      <h3>Échangez par email</h3>
+      <!-- TODO: remplacer YOUR_FORM_ID par l'endpoint Formspree réel une fois le compte créé (https://formspree.io/f/XXXXXXX).
+           Le champ _next doit pointer vers l'URL absolue de merci-formulaire.html sur le domaine final, et être ajouté aux
+           redirections autorisées dans les paramètres du formulaire Formspree. -->
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Nom*</label>
+            <input type="text" id="cf-name" name="name" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-company">Société*</label>
+            <input type="text" id="cf-company" name="company" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-email">Email*</label>
+            <input type="email" id="cf-email" name="email" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-phone">Téléphone*</label>
+            <input type="tel" id="cf-phone" name="phone" required>
+          </div>
+        </div>
+        <div class="form-field form-field-full">
+          <label for="cf-message">Comment pouvons-nous vous aider ? (optionnel)</label>
+          <textarea id="cf-message" name="message" rows="4"></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
+        <input type="hidden" name="_next" value="merci-formulaire.html">
+        <!-- TODO: reCAPTCHA v2 (comme sur agicompta.be/fr_be/contact-us/) : créer un site key propre au domaine
+             final sur https://www.google.com/recaptcha/admin (le site key du site modèle est lié à SON domaine
+             et ne fonctionnera pas ici), puis remplacer YOUR_RECAPTCHA_SITE_KEY ci-dessous. Activer aussi la
+             vérification reCAPTCHA dans les paramètres du formulaire Formspree (site key + secret key). -->
+        <div class="form-field">
+          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+        </div>
+        <button type="submit" class="btn btn-violet">Envoyer →</button>
+      </form>
     </div>
   </div>
 </section>
@@ -450,7 +502,7 @@
           <ul>
             <li><a href="#pourquoi">Pourquoi nous</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="https://www.agicompta.be/fr_be/blog/">Blog</a></li>
           </ul>
           <div class="social-icons">
@@ -468,11 +520,33 @@
   </div>
 </footer>
 
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
   burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
   document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
+
+  window.addEventListener('message', (e) => {
+    if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
+
+    // Le widget Calendly embarqué a sa propre confirmation dans l'iframe : sans ceci,
+    // une réservation ne passe jamais par une thank you page et n'est donc jamais trackée.
+    if (e.data.event === 'calendly.event_scheduled') {
+      window.location.href = 'merci-rdv.html';
+    }
+
+    // Calendly embarque une hauteur fixe par défaut, ce qui crée un scroll interne à
+    // l'iframe (une "page dans la page"). On resynchronise la hauteur du widget sur
+    // le contenu réel envoyé par Calendly pour que seule la page défile.
+    if (e.data.event === 'calendly.page_height') {
+      const widget = document.querySelector('.calendly-inline-widget');
+      if (widget && e.data.payload && e.data.payload.height) {
+        widget.style.height = e.data.payload.height + 'px';
+      }
+    }
+  });
 </script>
 </body>
 </html>
