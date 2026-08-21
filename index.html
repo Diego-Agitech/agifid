@@ -461,12 +461,9 @@
         </div>
         <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
         <input type="hidden" name="_next" value="merci-formulaire.html">
-        <!-- TODO: reCAPTCHA v2 (comme sur agicompta.be/fr_be/contact-us/) : créer un site key propre au domaine
-             final sur https://www.google.com/recaptcha/admin (le site key du site modèle est lié à SON domaine
-             et ne fonctionnera pas ici), puis remplacer YOUR_RECAPTCHA_SITE_KEY ci-dessous. Activer aussi la
-             vérification reCAPTCHA dans les paramètres du formulaire Formspree (site key + secret key). -->
+        <!-- Secret key reCAPTCHA à activer dans les paramètres du formulaire Formspree (pas dans le code). -->
         <div class="form-field">
-          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
+          <div class="g-recaptcha" data-sitekey="6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL"></div>
         </div>
         <button type="submit" class="btn btn-violet">Envoyer →</button>
       </form>
