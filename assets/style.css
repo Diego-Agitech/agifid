@@ -60,13 +60,13 @@
   .home-banner { background: var(--black); color: var(--white); padding: 6rem 0 7rem; position: relative; overflow: hidden; }
   .home-banner::after { content:''; position:absolute; width:600px; height:600px; background: radial-gradient(circle, rgba(123,63,152,0.18) 0%, transparent 70%); top:-200px; right:-150px; pointer-events:none; }
   .home-banner .row { position: relative; z-index: 2; }
-  .home-banner h6 { font-family: var(--font-body); color: var(--muted-onDark); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.25rem; text-transform: uppercase; }
+  .home-banner h6 { font-family: var(--font-body); color: var(--muted-onDark); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
   .home-banner h1 { font-size: clamp(2.4rem, 4.8vw, 4rem); line-height: 1.08; max-width: 680px; margin-bottom: 2.25rem; }
   .home-banner h1 span { color: var(--violet-light); }
 
   /* Experts */
   .certified-experts-section { padding: 5rem 0; background: var(--white); }
-  .certified-experts-section h6 { color: var(--violet); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .certified-experts-section h6 { color: var(--violet); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 0.6rem; }
   .certified-experts-section h3 { font-size: 1.9rem; margin-bottom: 2.5rem; }
   .experts-slider { display: flex; gap: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem; scroll-snap-type: x mandatory; }
   @media (min-width: 1000px) { .experts-slider { justify-content: center; } }
