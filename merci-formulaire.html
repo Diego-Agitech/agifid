@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — AgiFid</title>
-<meta name="description" content="Réservez un premier échange gratuit avec un expert AgiFid pour parler de votre comptabilité, votre fiscalité ou votre gestion sur Odoo.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fr_BE">
-<meta property="og:title" content="Contact — AgiFid">
-<meta property="og:description" content="Réservez un premier échange gratuit avec un expert AgiFid pour parler de votre comptabilité, votre fiscalité ou votre gestion sur Odoo.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Contact — AgiFid">
-<meta name="twitter:description" content="Réservez un premier échange gratuit avec un expert AgiFid pour parler de votre comptabilité, votre fiscalité ou votre gestion sur Odoo.">
+<meta name="robots" content="noindex, nofollow">
+<title>Merci — AgiFid</title>
+<meta name="description" content="Votre message a bien été envoyé à AgiFid. Nous revenons vers vous sous 48h.">
 <link rel="icon" href="assets/img/Screenshot-2025-08-18-102425.png">
 <!-- Polices auto-hébergées en base64 dans assets/fonts.css : aucune requête externe -->
 <link rel="stylesheet" href="assets/fonts.css">
@@ -37,68 +31,14 @@
   </div>
 </header>
 
-<section class="contact-hero">
-  <div class="container contact-hero-row">
-    <div class="contact-hero-content">
-      <h2>Discutons de votre <span>comptabilité</span></h2>
-      <ul class="trust-list">
-        <li>98 entreprises nous font déjà confiance</li>
-        <li>Partenaire Odoo Silver</li>
-        <li>Membre agréé ITAA</li>
-      </ul>
-
-      <h5>Vous préférez discuter en direct ?</h5>
-      <p>Pas de blabla commercial : vous parlez directement avec un expert AgiFid.</p>
-
-      <div class="calendly-embed-wrap">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/sam-agitech/25-min-intro?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-        <noscript>
-          <p class="calendly-fallback"><a href="https://calendly.com/sam-agitech/25-min-intro" target="_blank" rel="noopener">Réserver un créneau sur Calendly</a></p>
-        </noscript>
-      </div>
-    </div>
-
-    <div class="contact-card">
-      <h3>Échangez par email</h3>
-      <!-- TODO: remplacer YOUR_FORM_ID par l'endpoint Formspree réel une fois le compte créé (https://formspree.io/f/XXXXXXX).
-           Le champ _next doit pointer vers l'URL absolue de merci-formulaire.html sur le domaine final, et être ajouté aux
-           redirections autorisées dans les paramètres du formulaire Formspree. -->
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-name">Nom*</label>
-            <input type="text" id="cf-name" name="name" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-company">Société*</label>
-            <input type="text" id="cf-company" name="company" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="cf-email">Email*</label>
-            <input type="email" id="cf-email" name="email" required>
-          </div>
-          <div class="form-field">
-            <label for="cf-phone">Téléphone*</label>
-            <input type="tel" id="cf-phone" name="phone" required>
-          </div>
-        </div>
-        <div class="form-field form-field-full">
-          <label for="cf-message">Comment pouvons-nous vous aider ? (optionnel)</label>
-          <textarea id="cf-message" name="message" rows="4"></textarea>
-        </div>
-        <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
-        <input type="hidden" name="_next" value="merci-formulaire.html">
-        <!-- TODO: reCAPTCHA v2 (comme sur agicompta.be/fr_be/contact-us/) : créer un site key propre au domaine
-             final sur https://www.google.com/recaptcha/admin (le site key du site modèle est lié à SON domaine
-             et ne fonctionnera pas ici), puis remplacer YOUR_RECAPTCHA_SITE_KEY ci-dessous. Activer aussi la
-             vérification reCAPTCHA dans les paramètres du formulaire Formspree (site key + secret key). -->
-        <div class="form-field">
-          <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-        </div>
-        <button type="submit" class="btn btn-violet">Envoyer →</button>
-      </form>
+<section class="thank-you-section">
+  <div class="container-sm">
+    <div class="thank-you-box">
+      <div class="thank-you-icon">&#10003;</div>
+      <h1>Merci, votre message a bien été envoyé</h1>
+      <p>Un membre de l'équipe AgiFid revient vers vous sous 48h. En attendant, vous pouvez aussi réserver directement un créneau avec un expert.</p>
+      <a class="btn btn-violet" href="contact.html">Réserver un créneau</a>
+      <a class="btn btn-outline" href="index.html">Retour à l'accueil</a>
     </div>
   </div>
 </section>
@@ -150,33 +90,15 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Suivi de conversion "formulaire" : ajouter ici le tag Google Ads / GA4 / Meta Pixel une fois les
+     identifiants fournis. Cette page n'est atteinte qu'après une soumission réussie du formulaire de
+     contact (voir contact.html -> _next), ce qui en fait le point de mesure fiable pour cette conversion.
+     La conversion "prise de RDV Calendly" a son propre point de mesure séparé : merci-rdv.html. -->
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
   burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
   document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
-
-  window.addEventListener('message', (e) => {
-    if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
-
-    // Le widget Calendly embarqué a sa propre confirmation dans l'iframe : sans ceci,
-    // une réservation ne passe jamais par une thank you page et n'est donc jamais trackée.
-    if (e.data.event === 'calendly.event_scheduled') {
-      window.location.href = 'merci-rdv.html';
-    }
-
-    // Calendly embarque une hauteur fixe par défaut, ce qui crée un scroll interne à
-    // l'iframe (une "page dans la page"). On resynchronise la hauteur du widget sur
-    // le contenu réel envoyé par Calendly pour que seule la page défile.
-    if (e.data.event === 'calendly.page_height') {
-      const widget = document.querySelector('.calendly-inline-widget');
-      if (widget && e.data.payload && e.data.payload.height) {
-        widget.style.height = e.data.payload.height + 'px';
-      }
-    }
-  });
 </script>
 </body>
 </html>

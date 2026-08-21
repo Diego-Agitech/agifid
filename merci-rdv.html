@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Merci — AgiFid</title>
-<meta name="description" content="Votre message a bien été envoyé à AgiFid. Nous revenons vers vous sous 48h.">
+<title>Rendez-vous confirmé — AgiFid</title>
+<meta name="description" content="Votre rendez-vous avec un expert AgiFid est confirmé. Vous allez recevoir une confirmation par email.">
 <link rel="icon" href="assets/img/Screenshot-2025-08-18-102425.png">
 <!-- Polices auto-hébergées en base64 dans assets/fonts.css : aucune requête externe -->
 <link rel="stylesheet" href="assets/fonts.css">
@@ -35,9 +35,8 @@
   <div class="container-sm">
     <div class="thank-you-box">
       <div class="thank-you-icon">&#10003;</div>
-      <h1>Merci, votre message a bien été envoyé</h1>
-      <p>Un membre de l'équipe AgiFid revient vers vous sous 48h. En attendant, vous pouvez aussi réserver directement un créneau avec un expert.</p>
-      <a class="btn btn-violet" href="contact.html">Réserver un créneau</a>
+      <h1>Merci, votre rendez-vous est confirmé</h1>
+      <p>Vous allez recevoir un email de confirmation avec les détails de la visio. À très vite !</p>
       <a class="btn btn-outline" href="index.html">Retour à l'accueil</a>
     </div>
   </div>
@@ -90,11 +89,11 @@
   </div>
 </footer>
 
-<!-- Suivi de conversion : ajouter ici le tag Google Ads / GA4 / Meta Pixel une fois les identifiants fournis.
-     Cette page n'est atteinte qu'après une soumission réussie du formulaire OU une réservation Calendly
-     terminée (voir contact.html), ce qui en fait le point de mesure fiable pour ces deux conversions.
-     Le paramètre ?src=form ou ?src=calendly dans l'URL (new URLSearchParams(location.search).get('src'))
-     permet de distinguer les deux dans le tag si besoin d'un suivi séparé. -->
+<!-- Suivi de conversion "RDV Calendly" : ajouter ici le tag Google Ads / GA4 / Meta Pixel une fois les
+     identifiants fournis. Cette page n'est atteinte qu'après une réservation Calendly terminée (voir
+     l'event listener calendly.event_scheduled dans contact.html), ce qui en fait le point de mesure
+     fiable pour cette conversion. La conversion "formulaire" a son propre point de mesure séparé :
+     merci-formulaire.html. -->
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
