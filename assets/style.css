@@ -5,11 +5,12 @@
     --dark2: #202020;
     --card-dark: #232323;
     --white: #ffffff;
-    --offwhite: #f7f5fa;
-    --lightgray: #efecf3;
-    --violet: #7b3f98;
-    --violet-light: #9b5fbe;
-    --violet-soft: rgba(123,63,152,0.08);
+    --offwhite: #f7f7f7;
+    --lightgray: #e7e7e7;
+    --violet: #00d2ae;
+    --violet-light: #33dcc0;
+    --violet-soft: rgba(0,210,174,0.08);
+    --agitech-violet: #984895;
     --ink: #16151a;
     --muted: #6b6b76;
     --muted-onDark: #b7b0c2;
