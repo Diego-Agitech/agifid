@@ -46,6 +46,7 @@
   .main_menu { display: flex; align-items: center; gap: 2.5rem; }
   .main_menu ul { display: flex; gap: 2rem; }
   .main_menu ul a { color: var(--muted-onDark); font-size: 0.92rem; transition: color 0.2s; }
+  .main_menu ul .disabled-link { color: var(--muted-onDark); font-size: 0.92rem; opacity: 0.5; cursor: default; }
   .main_menu ul a:hover { color: var(--white); }
   .discuss-btn a { background: var(--violet); color: var(--white); padding: 0.6rem 1.4rem; border-radius: 100px; font-size: 0.88rem; font-weight: 500; transition: background 0.2s; }
   .discuss-btn a:hover { background: var(--violet-light); }
@@ -203,6 +204,7 @@
   .social-icons a:hover img { opacity: 1; }
   .ft-links .content ul li { margin-bottom: 0.55rem; }
   .ft-links .content ul a { color: var(--muted-onDark); font-size: 0.88rem; transition: color 0.2s; }
+  .ft-links .content ul .disabled-link { color: var(--muted-onDark); font-size: 0.88rem; opacity: 0.5; cursor: default; }
   .ft-links .content ul a:hover { color: var(--white); }
   .copy-right { display: flex; justify-content: space-between; align-items: center; padding-top: 1.75rem; border-top: 1px solid var(--border-onDark); font-size: 0.82rem; color: var(--muted-onDark); flex-wrap: wrap; gap: 0.75rem; }
   .privacy-links a { color: var(--muted-onDark); }
