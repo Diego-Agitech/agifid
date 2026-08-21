@@ -6,6 +6,9 @@
 <title>AgiFid — Fiduciaire 100% dédiée aux sociétés sur Odoo</title>
 <meta name="description" content="AgiFid, fiduciaire agréée membre de l'ITAA, et Agitech, intégrateur Odoo certifié : comptabilité, fiscalité, paie & RH et conseil financier pour les sociétés qui pilotent leur activité sur Odoo.">
 <link rel="canonical" href="https://agifid.be/">
+<link rel="alternate" hreflang="fr" href="https://agifid.be/">
+<link rel="alternate" hreflang="en" href="https://agifid.be/index-en.html">
+<link rel="alternate" hreflang="x-default" href="https://agifid.be/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_BE">
 <meta property="og:url" content="https://agifid.be/">
@@ -59,7 +62,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://www.agicompta.be/fr_be/blog/">Blog</a></li>
       </ul>
-      <div class="lang-flag"><span class="active">FR</span> / <span>EN</span></div>
+      <div class="lang-flag"><span class="active">FR</span> / <a href="index-en.html">EN</a></div>
       <div class="discuss-btn"><a href="#contact">Discutons</a></div>
     </nav>
     <div class="lines-button" id="burgerBtn"><span class="lines"></span></div>
@@ -461,10 +464,9 @@
         </div>
         <input type="hidden" name="_subject" value="Nouvelle demande de contact - AgiFid">
         <input type="hidden" name="_next" value="merci-formulaire.html">
-        <!-- Secret key reCAPTCHA à activer dans les paramètres du formulaire Formspree (pas dans le code). -->
-        <div class="form-field">
-          <div class="g-recaptcha" data-sitekey="6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL"></div>
-        </div>
+        <!-- reCAPTCHA v3 (invisible) : le token est généré au submit, cf script en bas de page.
+             Secret key à activer dans les paramètres du formulaire Formspree (pas dans le code). -->
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-fr">
         <button type="submit" class="btn btn-violet">Envoyer →</button>
       </form>
     </div>
@@ -520,12 +522,26 @@
 </footer>
 
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL" async defer></script>
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
   burgerBtn.addEventListener('click', () => mainMenu.classList.toggle('open'));
   document.querySelectorAll('.main_menu a').forEach(a => a.addEventListener('click', () => mainMenu.classList.remove('open')));
+
+  // reCAPTCHA v3 : génère un token invisible au submit, le pose dans le hidden field, puis soumet.
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      grecaptcha.ready(() => {
+        grecaptcha.execute('6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL', { action: 'contact' }).then((token) => {
+          document.getElementById('g-recaptcha-response-fr').value = token;
+          contactForm.submit();
+        });
+      });
+    });
+  }
 
   window.addEventListener('message', (e) => {
     if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
