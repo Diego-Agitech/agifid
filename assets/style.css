@@ -38,7 +38,8 @@
   .btn-outline:hover { border-color: var(--violet); color: var(--violet); }
 
   /* Header */
-  header { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 1px solid var(--border-onDark); }
+  header { position: sticky; top: 0; z-index: 100; background: var(--black); }
+  .brand-bar { height: 4px; background: linear-gradient(90deg, #984895, #00d2ae, #984895); }
   .header-wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; padding-bottom: 0.75rem; }
   .logo img { height: 46px; width: auto; }
   .main_menu { display: flex; align-items: center; gap: 2.5rem; }
@@ -57,7 +58,7 @@
   .home-banner { background: var(--black); color: var(--white); padding: 6rem 0 7rem; position: relative; overflow: hidden; }
   .home-banner::after { content:''; position:absolute; width:600px; height:600px; background: radial-gradient(circle, rgba(123,63,152,0.18) 0%, transparent 70%); top:-200px; right:-150px; pointer-events:none; }
   .home-banner .row { position: relative; z-index: 2; }
-  .home-banner h6 { color: var(--muted-onDark); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.25rem; text-transform: uppercase; }
+  .home-banner h6 { font-family: var(--font-body); color: var(--muted-onDark); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.25rem; text-transform: uppercase; }
   .home-banner h1 { font-size: clamp(2.4rem, 4.8vw, 4rem); line-height: 1.08; max-width: 680px; margin-bottom: 2.25rem; }
   .home-banner h1 span { color: var(--violet-light); }
 
