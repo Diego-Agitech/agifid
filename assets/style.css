@@ -52,7 +52,8 @@
   .lines-button .lines, .lines-button .lines::before, .lines-button .lines::after { content:''; display:block; width: 22px; height: 2px; background: var(--white); transition: 0.3s; }
   .lines-button .lines::before { transform: translateY(-7px); }
   .lines-button .lines::after { transform: translateY(5px); }
-  .lang-flag { display: none; }
+  .lang-flag { font-size: 0.85rem; color: var(--muted-onDark); }
+  .lang-flag .active { color: var(--white); font-weight: 600; }
 
   /* Hero */
   .home-banner { background: var(--black); color: var(--white); padding: 6rem 0 7rem; position: relative; overflow: hidden; }
