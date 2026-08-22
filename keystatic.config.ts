@@ -30,6 +30,7 @@ export default config({
         'offers',
         'itaa',
         'onboarding',
+        'faq',
         'contact',
       ],
       Actualités: ['blog'],
@@ -140,6 +141,27 @@ export default config({
             text: fields.text({ label: 'Texte', multiline: true }),
           }),
           { label: 'Étapes (numérotées automatiquement)', itemLabel: (props) => props.fields.title.value || 'Étape' }
+        ),
+      },
+    }),
+    faq: singleton({
+      label: 'FAQ (SEO / IA)',
+      path: 'src/content/faq',
+      format: { data: 'json' },
+      previewUrl: '/index.html#faq',
+      schema: {
+        title: fields.text({ label: 'Titre de la section' }),
+        subtitle: fields.text({ label: 'Sous-titre' }),
+        items: fields.array(
+          fields.object({
+            question: fields.text({ label: 'Question' }),
+            answer: fields.text({
+              label: 'Réponse',
+              multiline: true,
+              description: 'Reponse directe des la premiere phrase : c\'est ce qui est repris par Google et les IA (ChatGPT, Perplexity...).',
+            }),
+          }),
+          { label: 'Questions', itemLabel: (props) => props.fields.question.value || 'Question' }
         ),
       },
     }),

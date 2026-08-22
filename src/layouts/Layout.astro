@@ -11,7 +11,7 @@ export interface Props {
   /** Omit on noindex utility pages (thank-you pages): skips canonical/hreflang/OG/Twitter/JSON-LD. */
   canonical?: string;
   ogLocale?: string;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   robotsNoIndex?: boolean;
   /** Calendly widget + reCAPTCHA v3 + the postMessage listener - only needed on pages with the contact form. */
   includeContactScripts?: boolean;
@@ -52,15 +52,15 @@ const {
     <meta name="twitter:image" content="https://agifid.be/assets/img/og-image.png">
   </>
 )}
-<link rel="icon" href="assets/img/Screenshot-2025-08-18-102425.png">
+<link rel="icon" href="/assets/img/Screenshot-2025-08-18-102425.png">
 {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
 <!-- Fonts self-hosted as base64 in assets/fonts.css: no external request.
      Loaded non-blocking (preload + swap to stylesheet on load) since the file is ~330KB
      of embedded font data - font-display:swap inside it already lets text render in a
      fallback font immediately, so there's no FOUC risk from not blocking on it. -->
-<link rel="preload" href="assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript>
-<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" href="/assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/fonts.css"></noscript>
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
@@ -121,7 +121,7 @@ const {
       // The embedded Calendly widget has its own confirmation inside the iframe: without this,
       // a booking never goes through a thank-you page and is never tracked.
       if (e.data.event === 'calendly.event_scheduled') {
-        window.location.href = 'merci-rdv.html';
+        window.location.href = '/merci-rdv.html';
       }
 
       // Calendly defaults to a fixed height, which creates a scroll inside the iframe (a

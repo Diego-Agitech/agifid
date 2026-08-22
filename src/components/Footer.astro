@@ -11,7 +11,7 @@ const strings = {
     newsletter: 'Abonnez-vous à notre newsletter', emailPlaceholder: 'Votre email',
     newsletterSubject: 'Newsletter signup - AgiFid',
     tagline: 'Fiduciaire 100% dédiée aux sociétés sur Odoo',
-    why: 'Pourquoi nous', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech',
+    why: 'Pourquoi nous', services: 'Services', contact: 'Contact', blog: 'Actualités', agitech: 'Agitech',
     nav: 'Navigation', whyAnchor: 'pourquoi',
     rights: '© 2026 AgiFid. Tous droits réservés.',
     privacy: 'Politique de Confidentialité', terms: 'Termes et Conditions',
@@ -20,14 +20,14 @@ const strings = {
     newsletter: 'Subscribe to our newsletter', emailPlaceholder: 'Your email',
     newsletterSubject: 'Newsletter signup (EN) - AgiFid',
     tagline: 'Accounting firm 100% dedicated to companies on Odoo',
-    why: 'Why us', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech',
+    why: 'Why us', services: 'Services', contact: 'Contact', blog: 'Insights', agitech: 'Agitech',
     nav: 'Navigation', whyAnchor: 'why',
     rights: '© 2026 AgiFid. All rights reserved.',
     privacy: 'Privacy Policy', terms: 'Terms and Conditions',
   },
 }[lang];
 
-const base = pageType === 'home' ? '' : 'index.html';
+const base = pageType === 'home' ? '' : '/index.html';
 ---
 <div class="brand-bar"></div>
 <footer>
@@ -63,13 +63,13 @@ const base = pageType === 'home' ? '' : 'index.html';
             <li><a href={`${base}#${strings.whyAnchor}`}>{strings.why}</a></li>
             <li><a href={`${base}#services`}>{strings.services}</a></li>
             <li><a href={`${base}#contact`}>{strings.contact}</a></li>
-            <li><span class="disabled-link">{strings.blog}</span></li>
+            <li><a href="/actualites.html">{strings.blog}</a></li>
             <li><a href="https://agitech.io" target="_blank" rel="noopener">{strings.agitech}</a></li>
           </ul>
           <div class="social-icons">
-            <a href="https://www.linkedin.com/company/agitechbelgium/" target="_blank" rel="noopener"><img src="assets/img/linkedin.svg" alt="LinkedIn"></a>
-            <a href="https://www.youtube.com/@Agitech-OdooPartner" target="_blank" rel="noopener"><img src="assets/img/youtube.svg" alt="YouTube"></a>
-            <a href="https://wa.me/32460241589" target="_blank" rel="noopener"><img src="assets/img/whatsap.svg" alt="WhatsApp"></a>
+            <a href="https://www.linkedin.com/company/agitechbelgium/" target="_blank" rel="noopener"><img src="/assets/img/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://www.youtube.com/@Agitech-OdooPartner" target="_blank" rel="noopener"><img src="/assets/img/youtube.svg" alt="YouTube"></a>
+            <a href="https://wa.me/32460241589" target="_blank" rel="noopener"><img src="/assets/img/whatsap.svg" alt="WhatsApp"></a>
           </div>
         </div>
       </div>

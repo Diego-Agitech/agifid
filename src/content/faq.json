@@ -1,0 +1,30 @@
+{
+  "title": "Questions fréquentes",
+  "subtitle": "Tout ce qu'il faut savoir sur AgiFid, notre fonctionnement et nos tarifs.",
+  "items": [
+    {
+      "question": "Qu'est-ce qu'AgiFid ?",
+      "answer": "AgiFid est une fiduciaire agréée, membre de l'ITAA, 100% dédiée aux sociétés qui pilotent leur comptabilité, fiscalité et gestion sur Odoo. Elle collabore étroitement avec Agitech, intégrateur Odoo certifié, pour offrir un accompagnement coordonné entre comptabilité et outil de gestion."
+    },
+    {
+      "question": "Combien coûte la comptabilité d'une PME avec AgiFid ?",
+      "answer": "Les tarifs démarrent à 3 500 € HTVA par an pour une management company, et à 6 500 € HTVA par an pour une société de 1 à 5 équivalents temps plein. Au-delà de 5 ETP, le prix est établi sur demande selon la taille et la complexité de l'activité."
+    },
+    {
+      "question": "Qu'est-ce que l'ITAA et pourquoi est-ce important ?",
+      "answer": "L'ITAA (Institut des Conseillers Fiscaux et des Experts-Comptables) est l'organisme belge qui réglemente la profession comptable et fiscale. Être membre de l'ITAA garantit une expertise certifiée, une formation continue obligatoire et une déontologie stricte, ce qui protège directement le client."
+    },
+    {
+      "question": "Quelle est la différence entre AgiFid et Agitech ?",
+      "answer": "AgiFid et Agitech sont deux entités juridiquement et opérationnellement indépendantes. AgiFid est le comptable agréé (comptabilité, fiscalité, conseil), Agitech est l'intégrateur Odoo certifié (ERP, infrastructure IT). Elles collaborent étroitement pour éviter le renvoi de responsabilité classique entre comptable et intégrateur."
+    },
+    {
+      "question": "Faut-il déjà utiliser Odoo pour devenir client d'AgiFid ?",
+      "answer": "Non. AgiFid forme ses clients à la comptabilité dans Odoo dans le cadre de l'onboarding, avec une session dédiée à l'encodage et à la gestion comptable. Les sociétés qui ne sont pas encore sur Odoo peuvent être accompagnées conjointement par Agitech pour la mise en place de l'ERP."
+    },
+    {
+      "question": "Combien de temps dure l'onboarding chez AgiFid ?",
+      "answer": "L'onboarding se déroule en 5 étapes : un discovery call, la signature de la lettre de mission, la définition d'un schéma fiscal propre à la société, une formation à la comptabilité Odoo, puis le démarrage de la tenue de comptabilité avec des rendez-vous périodiques de suivi."
+    }
+  ]
+}

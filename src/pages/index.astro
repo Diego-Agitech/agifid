@@ -13,27 +13,39 @@ const services360 = await reader.singletons.services360.read();
 const offers = await reader.singletons.offers.read();
 const itaa = await reader.singletons.itaa.read();
 const onboarding = await reader.singletons.onboarding.read();
+const faq = await reader.singletons.faq.read();
 const contact = await reader.singletons.contact.read();
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'AccountingService',
-  name: 'AgiFid',
-  url: 'https://agifid.be/',
-  description: "Fiduciaire agréée membre de l'ITAA, 100% dédiée aux sociétés qui pilotent leur comptabilité, fiscalité et gestion sur Odoo.",
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '11 Clos Lucien Outers',
-    postalCode: '1160',
-    addressLocality: 'Brussels',
-    addressCountry: 'BE',
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AccountingService',
+    name: 'AgiFid',
+    url: 'https://agifid.be/',
+    description: "Fiduciaire agréée membre de l'ITAA, 100% dédiée aux sociétés qui pilotent leur comptabilité, fiscalité et gestion sur Odoo.",
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '11 Clos Lucien Outers',
+      postalCode: '1160',
+      addressLocality: 'Brussels',
+      addressCountry: 'BE',
+    },
+    areaServed: 'BE',
+    sameAs: [
+      'https://www.linkedin.com/company/agitechbelgium/',
+      'https://www.youtube.com/@Agitech-OdooPartner',
+    ],
   },
-  areaServed: 'BE',
-  sameAs: [
-    'https://www.linkedin.com/company/agitechbelgium/',
-    'https://www.youtube.com/@Agitech-OdooPartner',
-  ],
-};
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
 ---
 <Layout
   htmlLang="fr-BE"
@@ -253,6 +265,23 @@ const jsonLd = {
           <h5>{step.title}</h5>
           <p>{step.text}</p>
         </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="container-sm">
+    <div class="title">
+      <h3>{faq.title}</h3>
+      <p>{faq.subtitle}</p>
+    </div>
+    <div class="faq-list">
+      {faq.items.map((item) => (
+        <details class="faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
       ))}
     </div>
   </div>

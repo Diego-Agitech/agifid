@@ -13,13 +13,13 @@ const strings = {
 
 // On a sub-page (e.g. merci-formulaire.html) there is no per-language anchor target,
 // so nav links always point back to the French homepage's sections.
-const base = pageType === 'home' ? '' : 'index.html';
-const logoHref = pageType === 'home' ? (lang === 'en' ? 'index-en.html' : 'index.html') : 'index.html';
+const base = pageType === 'home' ? '' : '/index.html';
+const logoHref = pageType === 'home' ? (lang === 'en' ? '/index-en.html' : '/index.html') : '/index.html';
 ---
 <header>
   <div class="container header-wrap">
     <a class="logo" href={logoHref}>
-      <img src="assets/img/logo-agifid.png" alt="Agifid">
+      <img src="/assets/img/logo-agifid.png" alt="Agifid">
     </a>
     <nav class="main_menu" id="mainMenu">
       <ul>
@@ -32,9 +32,9 @@ const logoHref = pageType === 'home' ? (lang === 'en' ? 'index-en.html' : 'index
       {pageType === 'home' && (
         <div class="lang-flag">
           {lang === 'fr' ? (
-            <><span class="active">FR</span> / <a href="index-en.html">EN</a></>
+            <><span class="active">FR</span> / <a href="/index-en.html">EN</a></>
           ) : (
-            <><a href="index.html">FR</a> / <span class="active">EN</span></>
+            <><a href="/index.html">FR</a> / <span class="active">EN</span></>
           )}
         </div>
       )}
