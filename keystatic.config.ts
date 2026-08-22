@@ -189,13 +189,21 @@ export default config({
       path: 'src/content/blog/*',
       format: { contentField: 'content' },
       previewUrl: '/actualites/{slug}.html',
-      columns: ['title', 'category', 'date', 'published'],
+      columns: ['title', 'lang', 'category', 'date', 'published'],
       schema: {
         title: fields.slug({
           name: { label: 'Titre' },
           slug: { label: 'URL (générée depuis le titre)' },
         }),
         date: fields.date({ label: 'Date de publication', defaultValue: { kind: 'today' } }),
+        lang: fields.select({
+          label: 'Langue',
+          options: [
+            { label: 'Français', value: 'fr' },
+            { label: 'English', value: 'en' },
+          ],
+          defaultValue: 'fr',
+        }),
         category: fields.text({ label: 'Catégorie', description: 'Ex : Fiscalité, Odoo, Digital & IA' }),
         excerpt: fields.text({
           label: 'Résumé (affiché dans la liste et pour le SEO)',

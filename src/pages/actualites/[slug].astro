@@ -28,7 +28,8 @@ const { html: bodyHtml, toc } = addTocIds(rendered);
 
 const wordCount = rendered.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
 const readingTime = Math.max(1, Math.round(wordCount / 200));
-const publishedDate = new Date(entry.date).toLocaleDateString('fr-BE', { day: 'numeric', month: 'long', year: 'numeric' });
+const isEn = entry.lang === 'en';
+const publishedDate = new Date(entry.date).toLocaleDateString(isEn ? 'en-GB' : 'fr-BE', { day: 'numeric', month: 'long', year: 'numeric' });
 
 const canonical = `https://agifid.be/actualites/${Astro.params.slug}.html`;
 const jsonLd = {
@@ -43,18 +44,18 @@ const jsonLd = {
 };
 ---
 <Layout
-  htmlLang="fr-BE"
-  lang="fr"
+  htmlLang={isEn ? 'en' : 'fr-BE'}
+  lang={isEn ? 'en' : 'fr'}
   pageType="sub"
-  title={`${entry.title} — Actualités AgiFid`}
+  title={`${entry.title} — ${isEn ? 'AgiFid Insights' : 'Actualités AgiFid'}`}
   description={entry.excerpt}
   canonical={canonical}
-  ogLocale="fr_BE"
+  ogLocale={isEn ? 'en_GB' : 'fr_BE'}
   jsonLd={jsonLd}
 >
 <section class="blog-article-section">
   <div class="container">
-    <a class="blog-back-link" href="/actualites.html">← Retour aux actualités</a>
+    <a class="blog-back-link" href={isEn ? '/actualites-en.html' : '/actualites.html'}>{isEn ? '← Back to Insights' : '← Retour aux actualités'}</a>
     <div class="blog-article-header">
       {entry.category && <span class="blog-category-tag" data-category={entry.category}>{entry.category}</span>}
       <h1>{entry.title}</h1>
@@ -63,7 +64,7 @@ const jsonLd = {
         <span class="blog-article-dot">·</span>
         <span>{entry.author}</span>
         <span class="blog-article-dot">·</span>
-        <span>{readingTime} min de lecture</span>
+        <span>{readingTime} min {isEn ? 'read' : 'de lecture'}</span>
       </div>
       <p class="blog-article-excerpt">{entry.excerpt}</p>
     </div>
@@ -81,7 +82,7 @@ const jsonLd = {
     </div>
     {relatedEntries.length > 0 && (
       <div class="blog-related">
-        <h5>À lire aussi</h5>
+        <h5>{isEn ? 'Related articles' : 'À lire aussi'}</h5>
         <div class="blog-related-grid">
           {relatedEntries.map((related) => (
             <a class="blog-related-card" href={`/actualites/${related.slug}.html`}>
@@ -93,9 +94,9 @@ const jsonLd = {
       </div>
     )}
     <div class="blog-article-cta">
-      <h5>Une question sur votre comptabilité ?</h5>
-      <p>Parlez-en directement avec un expert AgiFid, sans blabla commercial.</p>
-      <a class="btn btn-violet" href="/index.html#contact">Parler à un expert</a>
+      <h5>{isEn ? 'A question about your accounting?' : 'Une question sur votre comptabilité ?'}</h5>
+      <p>{isEn ? 'Talk directly to an AgiFid expert, no sales pitch.' : 'Parlez-en directement avec un expert AgiFid, sans blabla commercial.'}</p>
+      <a class="btn btn-violet" href={isEn ? '/index-en.html#contact' : '/index.html#contact'}>{isEn ? 'Talk to an expert' : 'Parler à un expert'}</a>
     </div>
   </div>
 </section>
