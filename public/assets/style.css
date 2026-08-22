@@ -59,7 +59,8 @@
 
   /* Hero */
   .home-banner { background: var(--black); color: var(--white); padding: 6rem 0 7rem; position: relative; overflow: hidden; }
-  .home-banner::after { content:''; position:absolute; width:600px; height:600px; background: radial-gradient(circle, rgba(123,63,152,0.18) 0%, transparent 70%); top:-200px; right:-150px; pointer-events:none; }
+  .home-banner::after { content:''; position:absolute; width:700px; height:700px; background: radial-gradient(circle, rgba(0,210,174,0.24) 0%, transparent 70%); top:-220px; right:-180px; pointer-events:none; }
+  .home-banner::before { content:''; position:absolute; width:650px; height:650px; background: radial-gradient(circle, rgba(152,72,149,0.32) 0%, transparent 70%); bottom:-260px; left:-200px; pointer-events:none; }
   .home-banner .row { position: relative; z-index: 2; }
   .home-banner h6 { font-family: var(--font-body); color: var(--muted-onDark); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
   .home-banner h1 { font-size: clamp(0.95rem, 5vw, 2.7rem); line-height: 1.08; max-width: 680px; margin-bottom: 2.25rem; }
