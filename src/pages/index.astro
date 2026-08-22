@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const experts = (await reader.collections.experts.all())
+  .map((e) => e.entry)
+  .sort((a, b) => a.order - b.order);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -49,22 +56,12 @@ const jsonLd = {
     <h6>Partenaire Odoo Silver</h6>
     <h3>Experts Comptables &amp; Odoo</h3>
     <div class="experts-slider">
-      <div class="expert-member">
-        <img src="assets/img/mika-team.png" alt="Mika" loading="lazy">
-        <div class="expert-info"><h5>Mika</h5><h6>Expert Comptable</h6></div>
-      </div>
-      <div class="expert-member">
-        <img src="assets/img/sam-team.png" alt="Diego" loading="lazy">
-        <div class="expert-info"><h5>Diego</h5><h6>Expert Odoo</h6></div>
-      </div>
-      <div class="expert-member">
-        <img src="assets/img/diego-team.png" alt="Mariano" loading="lazy">
-        <div class="expert-info"><h5>Mariano</h5><h6>Expert Comptable</h6></div>
-      </div>
-      <div class="expert-member">
-        <img src="assets/img/mariano-team.png" alt="Sam" loading="lazy">
-        <div class="expert-info"><h5>Sam</h5><h6>Expert Odoo</h6></div>
-      </div>
+      {experts.map((expert) => (
+        <div class="expert-member">
+          <img src={`assets/img/experts/${expert.photo}`} alt={expert.displayName} loading="lazy">
+          <div class="expert-info"><h5>{expert.displayName}</h5><h6>{expert.role}</h6></div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
