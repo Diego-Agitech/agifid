@@ -1,9 +1,10 @@
 import { config, fields, collection } from '@keystatic/core';
 
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage:
+    process.env.NODE_ENV === 'development'
+      ? { kind: 'local' }
+      : { kind: 'github', repo: 'Diego-Agitech/agifid' },
   collections: {
     experts: collection({
       label: 'Experts (section Experts Comptables & Odoo)',
