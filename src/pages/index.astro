@@ -7,6 +7,7 @@ const reader = createReader(process.cwd(), keystaticConfig);
 const experts = (await reader.collections.experts.all())
   .map((e) => e.entry)
   .sort((a, b) => a.order - b.order);
+const hero = await reader.singletons.hero.read();
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -39,11 +40,11 @@ const jsonLd = {
   jsonLd={jsonLd}
   includeContactScripts
 >
-<section class="home-banner">
+<section class="home-banner" id="hero">
   <div class="container row">
-    <h6>98 entreprises nous font déjà confiance</h6>
-    <h1>Fiduciaire <span>100% dédiée</span><br>aux sociétés sur Odoo</h1>
-    <a class="btn btn-light" href="#contact">Parler à un expert</a>
+    <h6>{hero.kicker}</h6>
+    <h1>{hero.titleBefore} <span>{hero.titleHighlight}</span><br>{hero.titleAfter}</h1>
+    <a class="btn btn-light" href="#contact">{hero.ctaLabel}</a>
   </div>
 </section>
 <div class="brand-bar"></div>
@@ -51,7 +52,7 @@ const jsonLd = {
 
 
 
-<section class="certified-experts-section">
+<section class="certified-experts-section" id="experts">
   <div class="container">
     <h6>Partenaire Odoo Silver</h6>
     <h3>Experts Comptables &amp; Odoo</h3>
