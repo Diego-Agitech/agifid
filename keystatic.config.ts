@@ -189,13 +189,14 @@ export default config({
       path: 'src/content/blog/*',
       format: { contentField: 'content' },
       previewUrl: '/actualites/{slug}.html',
-      columns: ['title', 'date', 'published'],
+      columns: ['title', 'category', 'date', 'published'],
       schema: {
         title: fields.slug({
           name: { label: 'Titre' },
           slug: { label: 'URL (générée depuis le titre)' },
         }),
         date: fields.date({ label: 'Date de publication', defaultValue: { kind: 'today' } }),
+        category: fields.text({ label: 'Catégorie', description: 'Ex : Fiscalité, Odoo, Digital & IA' }),
         excerpt: fields.text({
           label: 'Résumé (affiché dans la liste et pour le SEO)',
           multiline: true,
@@ -211,13 +212,7 @@ export default config({
           defaultValue: true,
         }),
         author: fields.text({ label: 'Auteur', defaultValue: 'AgiFid' }),
-        content: fields.document({
-          label: 'Contenu',
-          formatting: true,
-          links: true,
-          dividers: true,
-          headingLevels: [2, 3, 4],
-        }),
+        content: fields.markdoc({ label: 'Contenu' }),
       },
     }),
     experts: collection({
