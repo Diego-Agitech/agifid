@@ -1,7 +1,59 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const jsonLd = {
+const faqItems = [
+  {
+    question: 'What is AgiFid?',
+    answer: "AgiFid is a certified ITAA accounting firm, 100% dedicated to companies running their accounting, tax and management on Odoo. It works closely with Agitech, a certified Odoo integrator, to offer coordinated support between accounting and management tooling.",
+  },
+  {
+    question: 'How much does an accountant cost for an SME in Belgium?',
+    answer: "Expect roughly €150 to a few hundred euros per month depending on the size of the business, VAT regime and document volume. At AgiFid, pricing is fixed and transparent: €3,500 excl. VAT/year for a management company, €6,500 excl. VAT/year for 1 to 5 FTE, and on request above that.",
+  },
+  {
+    question: 'How do I choose a good accountant in Belgium?',
+    answer: "First check they're a member of the ITAA: only that protected title guarantees certified expertise, ongoing training and strict ethics. Then compare pricing transparency, responsiveness, and specialisation in your sector or management tool (Odoo, for example).",
+  },
+  {
+    question: 'Can I switch accountants mid-year?',
+    answer: "Yes, you can switch accountants at any time, respecting the notice period in your contract (or a reasonable period for a verbal agreement). The new firm retrieves your files from the previous one; at AgiFid, this transition is handled from the discovery call onwards.",
+  },
+  {
+    question: 'Is electronic invoicing (PEPPOL) mandatory in Belgium?',
+    answer: "Yes, since 1 January 2026, PEPPOL-format electronic invoicing is mandatory for VAT-registered businesses in Belgium. Odoo natively supports this standard, which makes compliance easier for companies already on Odoo.",
+  },
+  {
+    question: 'Does Odoo replace an accountant or accounting firm?',
+    answer: "No. Odoo is a management tool that centralises invoicing, purchasing and accounting, but it doesn't replace the accountant's legal role. The accounting firm remains responsible for tax compliance, VAT filings and validating annual accounts — Odoo makes that work simpler and more reliable, it doesn't substitute for it.",
+  },
+  {
+    question: "What's the difference between a bookkeeper and a certified accountant in Belgium?",
+    answer: '"Certified accountant" (expert-comptable) is a protected title reserved for ITAA members, who have completed certified training and are bound by strict ethics and quality control. A non-certified bookkeeper can keep accounts, but cannot carry the same professional liability or use that title.',
+  },
+  {
+    question: 'What is the ITAA and why does it matter?',
+    answer: "The ITAA (Institute for Tax Advisors and Accountants) is the Belgian body that regulates the accounting and tax profession. Being an ITAA member guarantees certified expertise, mandatory ongoing training and strict ethics — which directly protects the client.",
+  },
+  {
+    question: "What's the difference between AgiFid and Agitech?",
+    answer: "AgiFid and Agitech are two legally and operationally independent entities. AgiFid is the certified accountant (accounting, tax, advisory), Agitech is the certified Odoo integrator (ERP, IT infrastructure). They work closely together to avoid the classic back-and-forth blame game between accountant and integrator.",
+  },
+  {
+    question: 'Do I need to already be on Odoo to become an AgiFid client?',
+    answer: "No. AgiFid trains its clients on Odoo accounting as part of onboarding, with a dedicated session on data entry and bookkeeping management. Companies not yet on Odoo can be supported jointly by Agitech to set up the ERP.",
+  },
+  {
+    question: 'What are the accounting obligations of an SRL in Belgium?',
+    answer: "An SRL must keep double-entry bookkeeping, file annual accounts with the National Bank of Belgium every year, and submit periodic VAT returns (monthly or quarterly depending on the regime). It must also declare and pay corporate tax (CIT).",
+  },
+  {
+    question: 'How long does it take to start with a new accounting firm?',
+    answer: "At AgiFid, onboarding happens in 5 steps: discovery call, engagement letter signature, defining a tax structure, Odoo accounting training, then the start of bookkeeping with periodic follow-up. The duration mostly depends on the client's availability for the training phase.",
+  },
+];
+
+const jsonLd = [
+  {
   '@context': 'https://schema.org',
   '@type': 'AccountingService',
   name: 'AgiFid',
@@ -19,7 +71,17 @@ const jsonLd = {
     'https://www.linkedin.com/company/agitechbelgium/',
     'https://www.youtube.com/@Agitech-OdooPartner',
   ],
-};
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
 ---
 <Layout
   htmlLang="en"
@@ -365,6 +427,23 @@ const jsonLd = {
         <h5>Ongoing bookkeeping</h5>
         <p>Ongoing follow-up, with periodic check-ins on your accounts and management control.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="container-sm">
+    <div class="title">
+      <h3>Frequently asked questions</h3>
+      <p>Accounting, Odoo, switching accounting firms: the answers SME owners actually ask for.</p>
+    </div>
+    <div class="faq-list">
+      {faqItems.map((item) => (
+        <details class="faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
     </div>
   </div>
 </section>
