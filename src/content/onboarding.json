@@ -1,0 +1,26 @@
+{
+  "title": "Notre process d'onboarding",
+  "subtitle": "De la première prise de contact à votre rythme de croisière, un parcours clair en 5 étapes.",
+  "steps": [
+    {
+      "title": "Discovery Call",
+      "text": "On échange sur votre situation, vos besoins et vos objectifs."
+    },
+    {
+      "title": "Signature lettre de mission",
+      "text": "On formalise notre collaboration et le périmètre de nos services."
+    },
+    {
+      "title": "Définition d'un schéma fiscal",
+      "text": "Un modèle d'optimisation propre à votre situation, qui sert ensuite de cadre à tout notre accompagnement."
+    },
+    {
+      "title": "Formation compta Odoo",
+      "text": "On vous forme à l'encodage et à la gestion de votre comptabilité dans Odoo."
+    },
+    {
+      "title": "Tenue de la comptabilité",
+      "text": "Suivi continu, avec rendez-vous périodiques de situation comptable et de contrôle de gestion."
+    }
+  ]
+}

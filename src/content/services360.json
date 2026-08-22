@@ -1,0 +1,59 @@
+{
+  "title": "Un accompagnement à 360°",
+  "items": [
+    {
+      "icon": "base-de-donnees.png",
+      "title": "Comptabilité",
+      "bullets": [
+        { "text": "Tenue complète de votre comptabilité et obligations légales." },
+        { "text": "Établissement des comptes annuels et déclarations TVA." },
+        { "text": "Suivi financier fiable pour piloter votre activité en toute sérénité." }
+      ]
+    },
+    {
+      "icon": "diagramme-circulaire.png",
+      "title": "Fiscalité",
+      "bullets": [
+        { "text": "Déclarations fiscales pour particuliers, indépendants et sociétés." },
+        { "text": "Optimisation fiscale dans le respect de la législation." },
+        { "text": "Accompagnement lors de contrôles et démarches administratives." }
+      ]
+    },
+    {
+      "icon": "conseiller-financier.png",
+      "title": "Paie & Ressources Humaines",
+      "bullets": [
+        { "text": "Gestion des salaires et des déclarations sociales." },
+        { "text": "Accompagnement dans l'administration du personnel." },
+        { "text": "Conseils en matière de rémunération et de gestion RH." }
+      ]
+    },
+    {
+      "icon": "analytique.png",
+      "title": "Analyse et Conseil Financier",
+      "bullets": [
+        { "text": "Analyse de la rentabilité et de la performance de votre entreprise." },
+        { "text": "Élaboration de budgets, prévisions et plans financiers." },
+        { "text": "Conseils stratégiques pour soutenir votre croissance." }
+      ]
+    },
+    {
+      "icon": "bouclier.png",
+      "title": "Juridique",
+      "bullets": [
+        { "text": "Assistance dans les formalités juridiques de votre société." },
+        { "text": "Rédaction et suivi des documents administratifs essentiels." },
+        { "text": "Conseils pour assurer la conformité de votre activité." }
+      ]
+    },
+    {
+      "icon": "codage.png",
+      "title": "Digitalisation & tableaux de bord",
+      "bullets": [
+        { "text": "Mise en place d'outils numériques adaptés à votre entreprise." },
+        { "text": "Automatisation des processus comptables et administratifs." },
+        { "text": "Tableaux de bord interactifs pour suivre vos indicateurs clés en temps réel." }
+      ]
+    }
+  ]
+}

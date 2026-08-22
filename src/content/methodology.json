@@ -1,0 +1,27 @@
+{
+  "title": "Une méthodologie construite pour Odoo",
+  "items": [
+    {
+      "title": "Comptabilité en temps réel",
+      "bullets": [
+        { "text": "Suivez vos bilans et votre compte de résultat en temps réel : un vrai insight sur votre activité." },
+        { "text": "Un responsable unique de votre Odoo. Fini les allers-retours où l'on se rejette la responsabilité." }
+      ]
+    },
+    {
+      "title": "Compréhension du business",
+      "bullets": [
+        { "text": "Votre comptable travaille directement dans Odoo." },
+        { "text": "Comptabilité à jour et Dashboard avec KPIs dans Odoo." }
+      ]
+    },
+    {
+      "title": "Devenez autonome",
+      "bullets": [
+        { "text": "Nous vous formons à la comptabilité Odoo." },
+        { "text": "Maîtrisez votre compta, devenez autonome." },
+        { "text": "Bien encodé de votre part : nous ne vous facturons pas l'encodage." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "title": "Nos offres & services",
+  "subtitle": "On s'adapte à votre situation : la compta, la tech, ou les deux. C'est vous qui choisissez.",
+  "tiers": [
+    {
+      "name": "Management company",
+      "price": "3 500 € / an",
+      "features": [
+        { "included": true, "text": "Comptes annuels & dépôt BNB" },
+        { "included": true, "text": "Déclarations TVA périodiques" },
+        { "included": true, "text": "Déclaration à l'impôt des sociétés (ISOC)" },
+        { "included": true, "text": "1h formation Odoo encodage & gestion compta" },
+        { "included": true, "text": "1h commentaire des comptes annuels" },
+        { "included": true, "text": "2h optimisation fiscale & rémunération du dirigeant" },
+        { "included": true, "text": "Bonus client exemplaire" },
+        { "included": false, "text": "Payroll" },
+        { "included": false, "text": "Contrôle de gestion" }
+      ]
+    },
+    {
+      "name": "1 à 5 ETP",
+      "price": "6 500 € / an",
+      "features": [
+        { "included": true, "text": "Comptes annuels & dépôt BNB" },
+        { "included": true, "text": "Déclarations TVA périodiques" },
+        { "included": true, "text": "Déclaration à l'impôt des sociétés (ISOC)" },
+        { "included": true, "text": "1h formation Odoo encodage & gestion compta" },
+        { "included": true, "text": "2h commentaire des comptes annuels" },
+        { "included": true, "text": "3h optimisation fiscale & rémunération du dirigeant" },
+        { "included": true, "text": "Bonus client exemplaire" },
+        { "included": true, "text": "Payroll inclus (≤ 5 travailleurs)" },
+        { "included": true, "text": "Contrôle de gestion" }
+      ]
+    },
+    {
+      "name": "Plus de 5 ETP",
+      "price": "Prix sur demande",
+      "features": [
+        { "included": true, "text": "Comptes annuels & dépôt BNB" },
+        { "included": true, "text": "Déclarations TVA périodiques" },
+        { "included": true, "text": "Déclaration à l'impôt des sociétés (ISOC)" },
+        { "included": true, "text": "1h formation Odoo encodage & gestion compta" },
+        { "included": true, "text": "2h commentaire des comptes annuels" },
+        { "included": true, "text": "3h optimisation fiscale & rémunération du dirigeant" },
+        { "included": true, "text": "Bonus client exemplaire" },
+        { "included": true, "text": "Payroll inclus (≤ 5 travailleurs)" },
+        { "included": true, "text": "Contrôle de gestion" }
+      ]
+    }
+  ]
+}

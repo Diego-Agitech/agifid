@@ -8,6 +8,11 @@ const experts = (await reader.collections.experts.all())
   .map((e) => e.entry)
   .sort((a, b) => a.order - b.order);
 const hero = await reader.singletons.hero.read();
+const methodology = await reader.singletons.methodology.read();
+const services360 = await reader.singletons.services360.read();
+const offers = await reader.singletons.offers.read();
+const itaa = await reader.singletons.itaa.read();
+const onboarding = await reader.singletons.onboarding.read();
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -69,100 +74,39 @@ const jsonLd = {
 
 <section class="why-section" id="pourquoi">
   <div class="container">
-    <div class="why-title"><h3>Une méthodologie construite pour Odoo</h3></div>
+    <div class="why-title"><h3>{methodology.title}</h3></div>
     <div class="row">
       <div class="why-image">
         <div class="why-img"><img src="assets/img/why-choose-us-sec-img-scaled.jpg" alt="Méthodologie Odoo" loading="lazy"></div>
       </div>
       <div class="why-content">
-        <div class="item">
-          <h4>01</h4>
-          <h5>Comptabilité en temps réel</h5>
-          <ul>
-            <li>Suivez vos bilans et votre compte de résultat en temps réel : un vrai insight sur votre activité.</li>
-            <li>Un responsable unique de votre Odoo. Fini les allers-retours où l'on se rejette la responsabilité.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <h4>02</h4>
-          <h5>Compréhension du business</h5>
-          <ul>
-            <li>Votre comptable travaille directement dans Odoo.</li>
-            <li>Comptabilité à jour et Dashboard avec KPIs dans Odoo.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <h4>03</h4>
-          <h5>Devenez autonome</h5>
-          <ul>
-            <li>Nous vous formons à la comptabilité Odoo.</li>
-            <li>Maîtrisez votre compta, devenez autonome.</li>
-            <li>Bien encodé de votre part : nous ne vous facturons pas l'encodage.</li>
-          </ul>
-        </div>
+        {methodology.items.map((item, i) => (
+          <div class="item">
+            <h4>{String(i + 1).padStart(2, '0')}</h4>
+            <h5>{item.title}</h5>
+            <ul>
+              {item.bullets.map((b) => <li>{b.text}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   </div>
 </section>
 
-<section class="odoo-expertise-section">
+<section class="odoo-expertise-section" id="accompagnement">
   <div class="container">
-    <h3>Un accompagnement à 360°</h3>
+    <h3>{services360.title}</h3>
     <div class="odoo-expertise-content">
-      <div class="item">
-        <div class="icon"><img src="assets/img/base-de-donnees.png" alt="Icône Comptabilité" loading="lazy"></div>
-        <h6>Comptabilité</h6>
-        <ul>
-          <li>Tenue complète de votre comptabilité et obligations légales.</li>
-          <li>Établissement des comptes annuels et déclarations TVA.</li>
-          <li>Suivi financier fiable pour piloter votre activité en toute sérénité.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="icon"><img src="assets/img/diagramme-circulaire.png" alt="Icône Fiscalité" loading="lazy"></div>
-        <h6>Fiscalité</h6>
-        <ul>
-          <li>Déclarations fiscales pour particuliers, indépendants et sociétés.</li>
-          <li>Optimisation fiscale dans le respect de la législation.</li>
-          <li>Accompagnement lors de contrôles et démarches administratives.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="icon"><img src="assets/img/conseiller-financier.png" alt="Icône Paie et Ressources Humaines" loading="lazy"></div>
-        <h6>Paie &amp; Ressources Humaines</h6>
-        <ul>
-          <li>Gestion des salaires et des déclarations sociales.</li>
-          <li>Accompagnement dans l'administration du personnel.</li>
-          <li>Conseils en matière de rémunération et de gestion RH.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="icon"><img src="assets/img/analytique.png" alt="Icône Analyse et Conseil Financier" loading="lazy"></div>
-        <h6>Analyse et Conseil Financier</h6>
-        <ul>
-          <li>Analyse de la rentabilité et de la performance de votre entreprise.</li>
-          <li>Élaboration de budgets, prévisions et plans financiers.</li>
-          <li>Conseils stratégiques pour soutenir votre croissance.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="icon"><img src="assets/img/bouclier.png" alt="Icône Juridique" loading="lazy"></div>
-        <h6>Juridique</h6>
-        <ul>
-          <li>Assistance dans les formalités juridiques de votre société.</li>
-          <li>Rédaction et suivi des documents administratifs essentiels.</li>
-          <li>Conseils pour assurer la conformité de votre activité.</li>
-        </ul>
-      </div>
-      <div class="item">
-        <div class="icon"><img src="assets/img/codage.png" alt="Icône Digitalisation et tableaux de bord" loading="lazy"></div>
-        <h6>Digitalisation &amp; tableaux de bord</h6>
-        <ul>
-          <li>Mise en place d'outils numériques adaptés à votre entreprise.</li>
-          <li>Automatisation des processus comptables et administratifs.</li>
-          <li>Tableaux de bord interactifs pour suivre vos indicateurs clés en temps réel.</li>
-        </ul>
-      </div>
+      {services360.items.map((item) => (
+        <div class="item">
+          <div class="icon"><img src={`assets/img/${item.icon}`} alt={`Icône ${item.title}`} loading="lazy"></div>
+          <h6>{item.title}</h6>
+          <ul>
+            {item.bullets.map((b) => <li>{b.text}</li>)}
+          </ul>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -170,61 +114,21 @@ const jsonLd = {
 <section class="our-services-section" id="services">
   <div class="container">
     <div class="title">
-      <h2>Nos offres &amp; services</h2>
-      <h6>On s'adapte à votre situation : la compta, la tech, ou les deux. C'est vous qui choisissez.</h6>
+      <h2>{offers.title}</h2>
+      <h6>{offers.subtitle}</h6>
     </div>
     <div class="our-services-content">
-      <div class="item">
-        <a class="item-wrap" href="#contact">
-          <h4>Management company</h4>
-          <ul>
-            <li>✓ Comptes annuels &amp; dépôt BNB</li>
-            <li>✓ Déclarations TVA périodiques</li>
-            <li>✓ Déclaration à l'impôt des sociétés (ISOC)</li>
-            <li>✓ 1h formation Odoo encodage &amp; gestion compta</li>
-            <li>✓ 1h commentaire des comptes annuels</li>
-            <li>✓ 2h optimisation fiscale &amp; rémunération du dirigeant</li>
-            <li>✓ Bonus client exemplaire</li>
-            <li>✗ Payroll</li>
-            <li>✗ Contrôle de gestion</li>
-          </ul>
-          <span class="light-page-link">3 500 € / an</span>
-        </a>
-      </div>
-      <div class="item">
-        <a class="item-wrap" href="#contact">
-          <h4>1 à 5 ETP</h4>
-          <ul>
-            <li>✓ Comptes annuels &amp; dépôt BNB</li>
-            <li>✓ Déclarations TVA périodiques</li>
-            <li>✓ Déclaration à l'impôt des sociétés (ISOC)</li>
-            <li>✓ 1h formation Odoo encodage &amp; gestion compta</li>
-            <li>✓ 2h commentaire des comptes annuels</li>
-            <li>✓ 3h optimisation fiscale &amp; rémunération du dirigeant</li>
-            <li>✓ Bonus client exemplaire</li>
-            <li>✓ Payroll inclus (≤ 5 travailleurs)</li>
-            <li>✓ Contrôle de gestion</li>
-          </ul>
-          <span class="light-page-link">6 500 € / an</span>
-        </a>
-      </div>
-      <div class="item">
-        <a class="item-wrap" href="#contact">
-          <h4>Plus de 5 ETP</h4>
-          <ul>
-            <li>✓ Comptes annuels &amp; dépôt BNB</li>
-            <li>✓ Déclarations TVA périodiques</li>
-            <li>✓ Déclaration à l'impôt des sociétés (ISOC)</li>
-            <li>✓ 1h formation Odoo encodage &amp; gestion compta</li>
-            <li>✓ 2h commentaire des comptes annuels</li>
-            <li>✓ 3h optimisation fiscale &amp; rémunération du dirigeant</li>
-            <li>✓ Bonus client exemplaire</li>
-            <li>✓ Payroll inclus (≤ 5 travailleurs)</li>
-            <li>✓ Contrôle de gestion</li>
-          </ul>
-          <span class="light-page-link">Prix sur demande</span>
-        </a>
-      </div>
+      {offers.tiers.map((tier) => (
+        <div class="item">
+          <a class="item-wrap" href="#contact">
+            <h4>{tier.name}</h4>
+            <ul>
+              {tier.features.map((f) => <li>{f.included ? '✓' : '✗'} {f.text}</li>)}
+            </ul>
+            <span class="light-page-link">{tier.price}</span>
+          </a>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -272,15 +176,14 @@ const jsonLd = {
     <div class="row">
       <div class="title">
         <img src="https://www.itaa.be/wp-content/uploads/logo_itaa_transparant.svg" alt="Logo ITAA" style="height:44px; width:auto; margin-bottom:1.25rem;" loading="lazy">
-        <h3>Membre de l'ITAA</h3>
+        <h3>{itaa.title}</h3>
       </div>
       <div class="content">
-        <div class="para-text"><h6>Votre garantie d'un accompagnement professionnel, réglementé et de qualité.</h6></div>
+        <div class="para-text"><h6>{itaa.subtitle}</h6></div>
         <div class="row">
-          <div class="methodology-content"><div class="item"><h4>01</h4><h5>Expertise certifiée</h5><p>Des compétences reconnues et validées par l'Institut des Conseillers Fiscaux et des Experts-Comptables.</p></div></div>
-          <div class="methodology-content"><div class="item"><h4>02</h4><h5>Formation continue</h5><p>Une mise à jour permanente de nos connaissances pour vous offrir des conseils toujours pertinents.</p></div></div>
-          <div class="methodology-content"><div class="item"><h4>03</h4><h5>Déontologie stricte</h5><p>Un engagement fort en matière d'éthique, de confidentialité et d'indépendance.</p></div></div>
-          <div class="methodology-content"><div class="item"><h4>04</h4><h5>Protection du client</h5><p>Un cadre réglementé qui garantit la qualité des services et la sécurité de votre accompagnement.</p></div></div>
+          {itaa.items.map((item, i) => (
+            <div class="methodology-content"><div class="item"><h4>{String(i + 1).padStart(2, '0')}</h4><h5>{item.title}</h5><p>{item.text}</p></div></div>
+          ))}
         </div>
       </div>
     </div>
@@ -336,38 +239,20 @@ const jsonLd = {
 
 <!-- Section "odoo-intro-section" du site original omise : contenait un texte de test non finalisé ("wef" / "we"). À réintégrer avec le vrai contenu une fois précisé. -->
 
-<section class="onboarding-section">
+<section class="onboarding-section" id="onboarding">
   <div class="container">
     <div class="title">
-      <h3>Notre process d'onboarding</h3>
-      <p>De la première prise de contact à votre rythme de croisière, un parcours clair en 5 étapes.</p>
+      <h3>{onboarding.title}</h3>
+      <p>{onboarding.subtitle}</p>
     </div>
     <div class="onboarding-track">
-      <div class="onboarding-step">
-        <div class="num">01</div>
-        <h5>Discovery Call</h5>
-        <p>On échange sur votre situation, vos besoins et vos objectifs.</p>
-      </div>
-      <div class="onboarding-step">
-        <div class="num">02</div>
-        <h5>Signature lettre de mission</h5>
-        <p>On formalise notre collaboration et le périmètre de nos services.</p>
-      </div>
-      <div class="onboarding-step">
-        <div class="num">03</div>
-        <h5>Définition d'un schéma fiscal</h5>
-        <p>Un modèle d'optimisation propre à votre situation, qui sert ensuite de cadre à tout notre accompagnement.</p>
-      </div>
-      <div class="onboarding-step">
-        <div class="num">04</div>
-        <h5>Formation compta Odoo</h5>
-        <p>On vous forme à l'encodage et à la gestion de votre comptabilité dans Odoo.</p>
-      </div>
-      <div class="onboarding-step">
-        <div class="num">05</div>
-        <h5>Tenue de la comptabilité</h5>
-        <p>Suivi continu, avec rendez-vous périodiques de situation comptable et de contrôle de gestion.</p>
-      </div>
+      {onboarding.steps.map((step, i) => (
+        <div class="onboarding-step">
+          <div class="num">{String(i + 1).padStart(2, '0')}</div>
+          <h5>{step.title}</h5>
+          <p>{step.text}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
