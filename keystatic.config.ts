@@ -30,6 +30,7 @@ export default config({
         'offers',
         'itaa',
         'onboarding',
+        'contact',
       ],
     },
   },
@@ -139,6 +140,22 @@ export default config({
           }),
           { label: 'Étapes (numérotées automatiquement)', itemLabel: (props) => props.fields.title.value || 'Étape' }
         ),
+      },
+    }),
+    contact: singleton({
+      label: 'Contact (texte autour du formulaire)',
+      path: 'src/content/contact',
+      format: { data: 'json' },
+      previewUrl: '/index.html#contact',
+      schema: {
+        titleBefore: fields.text({ label: 'Titre — début', description: 'Ex : Discutons de votre' }),
+        titleHighlight: fields.text({ label: 'Titre — mot en surbrillance', description: 'Ex : comptabilité' }),
+        trustList: fields.array(
+          fields.object({ text: fields.text({ label: 'Texte' }) }),
+          { label: 'Liste de confiance (3 puces)', itemLabel: (props) => props.fields.text.value || 'Puce' }
+        ),
+        directTitle: fields.text({ label: 'Titre "discuter en direct"' }),
+        directText: fields.text({ label: 'Texte', multiline: true }),
       },
     }),
   },

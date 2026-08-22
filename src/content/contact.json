@@ -1,0 +1,11 @@
+{
+  "titleBefore": "Discutons de votre",
+  "titleHighlight": "comptabilité",
+  "trustList": [
+    { "text": "98 entreprises nous font déjà confiance" },
+    { "text": "Partenaire Odoo Silver" },
+    { "text": "Membre agréé ITAA" }
+  ],
+  "directTitle": "Vous préférez discuter en direct ?",
+  "directText": "Pas de blabla commercial : vous parlez directement avec un expert AgiFid."
+}

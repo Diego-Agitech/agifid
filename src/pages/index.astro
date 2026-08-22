@@ -13,6 +13,7 @@ const services360 = await reader.singletons.services360.read();
 const offers = await reader.singletons.offers.read();
 const itaa = await reader.singletons.itaa.read();
 const onboarding = await reader.singletons.onboarding.read();
+const contact = await reader.singletons.contact.read();
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -260,15 +261,13 @@ const jsonLd = {
 <section class="contact-hero" id="contact">
   <div class="container">
     <div class="contact-hero-intro">
-      <h2>Discutons de votre <span>comptabilité</span></h2>
+      <h2>{contact.titleBefore} <span>{contact.titleHighlight}</span></h2>
       <ul class="trust-list">
-        <li>98 entreprises nous font déjà confiance</li>
-        <li>Partenaire Odoo Silver</li>
-        <li>Membre agréé ITAA</li>
+        {contact.trustList.map((item) => <li>{item.text}</li>)}
       </ul>
 
-      <h5>Vous préférez discuter en direct ?</h5>
-      <p>Pas de blabla commercial : vous parlez directement avec un expert AgiFid.</p>
+      <h5>{contact.directTitle}</h5>
+      <p>{contact.directText}</p>
     </div>
   </div>
   <div class="container contact-hero-row">
