@@ -1,30 +1,38 @@
 {
   "title": "Questions fréquentes",
-  "subtitle": "Tout ce qu'il faut savoir sur AgiFid, notre fonctionnement et nos tarifs.",
+  "subtitle": "Comptabilité, Odoo, changement de fiduciaire : les réponses aux questions que se posent les dirigeants de PME.",
   "items": [
     {
-      "question": "Qu'est-ce qu'AgiFid ?",
-      "answer": "AgiFid est une fiduciaire agréée, membre de l'ITAA, 100% dédiée aux sociétés qui pilotent leur comptabilité, fiscalité et gestion sur Odoo. Elle collabore étroitement avec Agitech, intégrateur Odoo certifié, pour offrir un accompagnement coordonné entre comptabilité et outil de gestion."
+      "question": "Combien coûte un expert-comptable pour une PME en Belgique ?",
+      "answer": "Comptez généralement entre 150 € et plusieurs centaines d'euros par mois selon la taille de l'activité, le régime TVA et le volume de documents. Chez AgiFid, les tarifs sont fixes et transparents : 3 500 € HTVA/an pour une management company, 6 500 € HTVA/an pour 1 à 5 ETP, et sur devis au-delà."
     },
     {
-      "question": "Combien coûte la comptabilité d'une PME avec AgiFid ?",
-      "answer": "Les tarifs démarrent à 3 500 € HTVA par an pour une management company, et à 6 500 € HTVA par an pour une société de 1 à 5 équivalents temps plein. Au-delà de 5 ETP, le prix est établi sur demande selon la taille et la complexité de l'activité."
+      "question": "Comment choisir un bon expert-comptable en Belgique ?",
+      "answer": "Vérifiez d'abord qu'il est membre de l'ITAA : seul ce titre protégé garantit une expertise certifiée, une formation continue et une déontologie strictes. Ensuite, comparez la transparence tarifaire, la réactivité et la spécialisation dans votre secteur ou votre outil de gestion (Odoo, par exemple)."
     },
     {
-      "question": "Qu'est-ce que l'ITAA et pourquoi est-ce important ?",
-      "answer": "L'ITAA (Institut des Conseillers Fiscaux et des Experts-Comptables) est l'organisme belge qui réglemente la profession comptable et fiscale. Être membre de l'ITAA garantit une expertise certifiée, une formation continue obligatoire et une déontologie stricte, ce qui protège directement le client."
+      "question": "Peut-on changer de comptable en cours d'année ?",
+      "answer": "Oui, il est possible de changer d'expert-comptable à tout moment, en respectant le préavis prévu par votre contrat (ou un délai raisonnable en cas d'accord verbal). Le nouveau cabinet récupère les dossiers auprès de l'ancien ; chez AgiFid, cette transition est prise en charge dès le discovery call."
     },
     {
-      "question": "Quelle est la différence entre AgiFid et Agitech ?",
-      "answer": "AgiFid et Agitech sont deux entités juridiquement et opérationnellement indépendantes. AgiFid est le comptable agréé (comptabilité, fiscalité, conseil), Agitech est l'intégrateur Odoo certifié (ERP, infrastructure IT). Elles collaborent étroitement pour éviter le renvoi de responsabilité classique entre comptable et intégrateur."
+      "question": "La facturation électronique (PEPPOL) est-elle obligatoire en Belgique ?",
+      "answer": "Oui, depuis le 1er janvier 2026, la facturation électronique au format PEPPOL est obligatoire pour les entreprises assujetties à la TVA en Belgique. Odoo intègre nativement ce standard, ce qui facilite la mise en conformité pour les sociétés déjà sur Odoo."
     },
     {
-      "question": "Faut-il déjà utiliser Odoo pour devenir client d'AgiFid ?",
-      "answer": "Non. AgiFid forme ses clients à la comptabilité dans Odoo dans le cadre de l'onboarding, avec une session dédiée à l'encodage et à la gestion comptable. Les sociétés qui ne sont pas encore sur Odoo peuvent être accompagnées conjointement par Agitech pour la mise en place de l'ERP."
+      "question": "Odoo remplace-t-il un comptable ou une fiduciaire ?",
+      "answer": "Non. Odoo est un outil de gestion qui centralise facturation, achats et comptabilité, mais il ne remplace pas le rôle légal du comptable. La fiduciaire reste responsable de la conformité fiscale, des déclarations TVA et de la validation des comptes annuels — Odoo simplifie et fiabilise ce travail, il ne s'y substitue pas."
     },
     {
-      "question": "Combien de temps dure l'onboarding chez AgiFid ?",
-      "answer": "L'onboarding se déroule en 5 étapes : un discovery call, la signature de la lettre de mission, la définition d'un schéma fiscal propre à la société, une formation à la comptabilité Odoo, puis le démarrage de la tenue de comptabilité avec des rendez-vous périodiques de suivi."
+      "question": "Quelle est la différence entre un comptable et un expert-comptable en Belgique ?",
+      "answer": "\"Expert-comptable\" est un titre protégé réservé aux membres de l'ITAA, qui ont suivi une formation certifiante et sont soumis à une déontologie stricte et à un contrôle qualité. Un comptable non certifié peut tenir une comptabilité, mais ne peut pas engager sa responsabilité professionnelle de la même manière ni porter ce titre."
+    },
+    {
+      "question": "Quelles sont les obligations comptables d'une SRL en Belgique ?",
+      "answer": "Une SRL doit tenir une comptabilité en partie double, déposer ses comptes annuels à la Banque Nationale de Belgique chaque année, et effectuer des déclarations TVA périodiques (mensuelles ou trimestrielles selon le régime). Elle doit également déclarer et payer l'impôt des sociétés (ISOC)."
+    },
+    {
+      "question": "Combien de temps faut-il pour démarrer avec une nouvelle fiduciaire ?",
+      "answer": "Chez AgiFid, l'onboarding se fait en 5 étapes : discovery call, signature de la lettre de mission, définition d'un schéma fiscal, formation à la comptabilité Odoo, puis démarrage de la tenue de comptabilité avec suivi périodique. La durée dépend surtout de la disponibilité du client pour la phase de formation."
     }
   ]
 }
