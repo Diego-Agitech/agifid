@@ -32,6 +32,7 @@ export default config({
         'onboarding',
         'contact',
       ],
+      Actualités: ['blog'],
     },
   },
   singletons: {
@@ -160,6 +161,43 @@ export default config({
     }),
   },
   collections: {
+    blog: collection({
+      label: 'Actualités',
+      slugField: 'title',
+      path: 'src/content/blog/*',
+      format: { contentField: 'content' },
+      previewUrl: '/actualites/{slug}.html',
+      columns: ['title', 'date', 'published'],
+      schema: {
+        title: fields.slug({
+          name: { label: 'Titre' },
+          slug: { label: 'URL (générée depuis le titre)' },
+        }),
+        date: fields.date({ label: 'Date de publication', defaultValue: { kind: 'today' } }),
+        excerpt: fields.text({
+          label: 'Résumé (affiché dans la liste et pour le SEO)',
+          multiline: true,
+          validation: { length: { max: 300 } },
+        }),
+        coverImage: fields.image({
+          label: 'Image de couverture',
+          directory: 'public/assets/img/blog',
+          publicPath: 'assets/img/blog/',
+        }),
+        published: fields.checkbox({
+          label: 'Publié (décoché = brouillon, invisible sur le site)',
+          defaultValue: true,
+        }),
+        author: fields.text({ label: 'Auteur', defaultValue: 'AgiFid' }),
+        content: fields.document({
+          label: 'Contenu',
+          formatting: true,
+          links: true,
+          dividers: true,
+          headingLevels: [2, 3, 4],
+        }),
+      },
+    }),
     experts: collection({
       label: 'Équipe',
       slugField: 'name',

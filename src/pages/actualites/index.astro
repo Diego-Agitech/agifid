@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const posts = (await reader.collections.blog.all())
+  .map((p) => ({ slug: p.slug, ...p.entry }))
+  .filter((p) => p.published)
+  .sort((a, b) => (a.date < b.date ? 1 : -1));
+---
+<Layout
+  htmlLang="fr-BE"
+  lang="fr"
+  pageType="sub"
+  title="Actualités — AgiFid"
+  description="Comptabilité, fiscalité, paie et gestion sur Odoo : nos experts décryptent l'actualité fiscale et comptable et partagent des conseils concrets pour piloter votre entreprise."
+  canonical="https://agifid.be/actualites.html"
+  ogLocale="fr_BE"
+>
+<section class="blog-list-section">
+  <div class="container">
+    <div class="title">
+      <h6 class="eyebrow">Actualités</h6>
+      <h1>Comptabilité, fiscalité & Odoo : nos conseils d'experts</h1>
+      <p>Notre équipe de comptables et d'experts Odoo décrypte l'actualité fiscale et comptable belge, et partage des conseils concrets pour vous aider à piloter votre entreprise en toute sérénité — sans jargon inutile.</p>
+    </div>
+    <div class="blog-list-grid">
+      {posts.map((post) => (
+        <a class="blog-card" href={`/actualites/${post.slug}.html`}>
+          {post.coverImage && <img src={`/assets/img/blog/${post.coverImage}`} alt={post.title} loading="lazy" />}
+          <div class="blog-card-body">
+            <span class="blog-card-date">{new Date(post.date).toLocaleDateString('fr-BE', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+          </div>
+        </a>
+      ))}
+      {posts.length === 0 && <p>Aucun article publié pour le moment.</p>}
+    </div>
+  </div>
+</section>
+</Layout>
