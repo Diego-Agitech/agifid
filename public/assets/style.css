@@ -314,3 +314,13 @@
   .faq-item summary::after { content: '+'; font-size: 1.4rem; color: var(--violet); flex-shrink: 0; transition: transform 0.2s; }
   .faq-item[open] summary::after { transform: rotate(45deg); }
   .faq-item p { color: var(--muted); margin-top: 1rem; line-height: 1.7; }
+  @media (max-width: 560px) {
+    .faq-section { padding: 3.5rem 0; }
+    .faq-section h3 { font-size: 1.5rem; }
+    .faq-section .title { margin-bottom: 2rem; }
+    .faq-section .title p { font-size: 0.92rem; }
+    .faq-item { padding: 1rem 1.1rem; border-radius: 12px; }
+    .faq-item summary { font-size: 0.92rem; line-height: 1.4; align-items: flex-start; }
+    .faq-item summary::after { margin-top: 0.1rem; font-size: 1.2rem; }
+    .faq-item p { font-size: 0.88rem; margin-top: 0.75rem; line-height: 1.6; }
+  }
