@@ -126,7 +126,7 @@ const jsonLd = {
             <ul>
               {tier.features.map((f) => <li>{f.included ? '✓' : '✗'} {f.text}</li>)}
             </ul>
-            <span class="light-page-link">{tier.price}</span>
+            <span class="light-page-link">{tier.price}{tier.price.includes('€') && <span class="price-vat">HTVA</span>}</span>
           </a>
         </div>
       ))}
