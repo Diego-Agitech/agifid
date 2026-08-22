@@ -66,12 +66,6 @@ const {
 
 <Footer lang={lang} pageType={pageType} />
 
-{includeContactScripts && (
-  <>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL" async defer></script>
-  </>
-)}
 <script>
   const burgerBtn = document.getElementById('burgerBtn');
   const mainMenu = document.getElementById('mainMenu');
@@ -81,6 +75,42 @@ const {
 {includeContactScripts && (
   <script is:inline>
     const RECAPTCHA_SITEKEY = '6LflepEtAAAAAIMLMKQcFU-Kh6tTLgF5_6UlkmCL';
+
+    // Calendly + reCAPTCHA are heavy third-party scripts only needed once the visitor
+    // reaches the contact section - loading them eagerly on every page load was tanking
+    // Lighthouse (unused JS/CSS, blocking main thread) for content nobody scrolls to yet.
+    function loadScript(src, attrs = {}) {
+      return new Promise((resolve) => {
+        const s = document.createElement('script');
+        s.src = src;
+        Object.assign(s, attrs);
+        s.onload = resolve;
+        document.body.appendChild(s);
+      });
+    }
+
+    let contactScriptsPromise = null;
+    function loadContactScripts() {
+      if (!contactScriptsPromise) {
+        contactScriptsPromise = Promise.all([
+          loadScript('https://assets.calendly.com/assets/external/widget.js'),
+          loadScript(`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITEKEY}`),
+        ]);
+      }
+      return contactScriptsPromise;
+    }
+
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          loadContactScripts();
+          observer.disconnect();
+        }
+      }, { rootMargin: '600px' });
+      observer.observe(contactSection);
+    }
+
     window.addEventListener('message', (e) => {
       if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
 
@@ -105,11 +135,13 @@ const {
     document.querySelectorAll('.contact-form').forEach((contactForm) => {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        grecaptcha.ready(() => {
-          grecaptcha.execute(RECAPTCHA_SITEKEY, { action: 'contact' }).then((token) => {
-            const field = contactForm.querySelector('input[name="g-recaptcha-response"]');
-            if (field) field.value = token;
-            contactForm.submit();
+        loadContactScripts().then(() => {
+          grecaptcha.ready(() => {
+            grecaptcha.execute(RECAPTCHA_SITEKEY, { action: 'contact' }).then((token) => {
+              const field = contactForm.querySelector('input[name="g-recaptcha-response"]');
+              if (field) field.value = token;
+              contactForm.submit();
+            });
           });
         });
       });
