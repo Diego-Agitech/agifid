@@ -54,8 +54,12 @@ const {
 )}
 <link rel="icon" href="assets/img/Screenshot-2025-08-18-102425.png">
 {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
-<!-- Fonts self-hosted as base64 in assets/fonts.css: no external request -->
-<link rel="stylesheet" href="assets/fonts.css">
+<!-- Fonts self-hosted as base64 in assets/fonts.css: no external request.
+     Loaded non-blocking (preload + swap to stylesheet on load) since the file is ~330KB
+     of embedded font data - font-display:swap inside it already lets text render in a
+     fallback font immediately, so there's no FOUC risk from not blocking on it. -->
+<link rel="preload" href="assets/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/fonts.css"></noscript>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
