@@ -212,6 +212,12 @@ export default config({
           defaultValue: true,
         }),
         author: fields.text({ label: 'Auteur', defaultValue: 'AgiFid' }),
+        relatedArticles: fields.multiRelationship({
+          label: 'Articles liés',
+          collection: 'blog',
+          description: 'Affichés en bas de l\'article, pour le maillage interne (SEO).',
+          validation: { length: { max: 3 } },
+        }),
         content: fields.markdoc({ label: 'Contenu' }),
       },
     }),

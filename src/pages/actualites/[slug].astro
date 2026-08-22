@@ -13,7 +13,15 @@ export async function getStaticPaths() {
     .map((p) => ({ params: { slug: p.slug }, props: { entry: p.entry } }));
 }
 
+const reader = createReader(process.cwd(), keystaticConfig);
 const { entry } = Astro.props;
+const relatedSlugs = entry.relatedArticles ?? [];
+const relatedEntries = (
+  await Promise.all(relatedSlugs.map((slug) => reader.collections.blog.read(slug)))
+)
+  .map((related, i) => (related ? { slug: relatedSlugs[i], ...related } : null))
+  .filter((related): related is NonNullable<typeof related> => related !== null && related.published);
+
 const { node } = await entry.content();
 const rendered = Markdoc.renderers.html(Markdoc.transform(node));
 const { html: bodyHtml, toc } = addTocIds(rendered);
@@ -71,6 +79,19 @@ const jsonLd = {
       )}
       <div class="blog-article-body" set:html={bodyHtml} />
     </div>
+    {relatedEntries.length > 0 && (
+      <div class="blog-related">
+        <h5>À lire aussi</h5>
+        <div class="blog-related-grid">
+          {relatedEntries.map((related) => (
+            <a class="blog-related-card" href={`/actualites/${related.slug}.html`}>
+              {related.category && <span class="blog-category-tag" data-category={related.category}>{related.category}</span>}
+              <h6>{related.title}</h6>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
     <div class="blog-article-cta">
       <h5>Une question sur votre comptabilité ?</h5>
       <p>Parlez-en directement avec un expert AgiFid, sans blabla commercial.</p>
