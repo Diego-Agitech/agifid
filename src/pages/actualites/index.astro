@@ -30,7 +30,7 @@ const posts = (await reader.collections.blog.all())
         <a class="blog-card" href={`/actualites/${post.slug}.html`}>
           {post.coverImage && <img src={`/assets/img/blog/${post.coverImage}`} alt={post.title} loading="lazy" />}
           <div class="blog-card-body">
-            {post.category && <span class="blog-category-tag">{post.category}</span>}
+            {post.category && <span class="blog-category-tag" data-category={post.category}>{post.category}</span>}
             <h3>{post.title}</h3>
             <p>{post.excerpt}</p>
             <span class="blog-card-date">{new Date(post.date).toLocaleDateString('fr-BE', { day: 'numeric', month: 'long', year: 'numeric' })}</span>

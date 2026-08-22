@@ -48,7 +48,7 @@ const jsonLd = {
   <div class="container">
     <a class="blog-back-link" href="/actualites.html">← Retour aux actualités</a>
     <div class="blog-article-header">
-      {entry.category && <span class="blog-category-tag">{entry.category}</span>}
+      {entry.category && <span class="blog-category-tag" data-category={entry.category}>{entry.category}</span>}
       <h1>{entry.title}</h1>
       <div class="blog-article-meta">
         <span class="blog-card-date">{publishedDate}</span>
