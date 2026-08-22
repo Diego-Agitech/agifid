@@ -3,6 +3,10 @@
   "subtitle": "Comptabilité, Odoo, changement de fiduciaire : les réponses aux questions que se posent les dirigeants de PME.",
   "items": [
     {
+      "question": "Qu'est-ce qu'AgiFid ?",
+      "answer": "AgiFid est une fiduciaire agréée, membre de l'ITAA, 100% dédiée aux sociétés qui pilotent leur comptabilité, fiscalité et gestion sur Odoo. Elle collabore étroitement avec Agitech, intégrateur Odoo certifié, pour offrir un accompagnement coordonné entre comptabilité et outil de gestion."
+    },
+    {
       "question": "Combien coûte un expert-comptable pour une PME en Belgique ?",
       "answer": "Comptez généralement entre 150 € et plusieurs centaines d'euros par mois selon la taille de l'activité, le régime TVA et le volume de documents. Chez AgiFid, les tarifs sont fixes et transparents : 3 500 € HTVA/an pour une management company, 6 500 € HTVA/an pour 1 à 5 ETP, et sur devis au-delà."
     },
@@ -25,6 +29,18 @@
     {
       "question": "Quelle est la différence entre un comptable et un expert-comptable en Belgique ?",
       "answer": "\"Expert-comptable\" est un titre protégé réservé aux membres de l'ITAA, qui ont suivi une formation certifiante et sont soumis à une déontologie stricte et à un contrôle qualité. Un comptable non certifié peut tenir une comptabilité, mais ne peut pas engager sa responsabilité professionnelle de la même manière ni porter ce titre."
+    },
+    {
+      "question": "Qu'est-ce que l'ITAA et pourquoi est-ce important ?",
+      "answer": "L'ITAA (Institut des Conseillers Fiscaux et des Experts-Comptables) est l'organisme belge qui réglemente la profession comptable et fiscale. Être membre de l'ITAA garantit une expertise certifiée, une formation continue obligatoire et une déontologie stricte, ce qui protège directement le client."
+    },
+    {
+      "question": "Quelle est la différence entre AgiFid et Agitech ?",
+      "answer": "AgiFid et Agitech sont deux entités juridiquement et opérationnellement indépendantes. AgiFid est le comptable agréé (comptabilité, fiscalité, conseil), Agitech est l'intégrateur Odoo certifié (ERP, infrastructure IT). Elles collaborent étroitement pour éviter le renvoi de responsabilité classique entre comptable et intégrateur."
+    },
+    {
+      "question": "Faut-il déjà utiliser Odoo pour devenir client d'AgiFid ?",
+      "answer": "Non. AgiFid forme ses clients à la comptabilité dans Odoo dans le cadre de l'onboarding, avec une session dédiée à l'encodage et à la gestion comptable. Les sociétés qui ne sont pas encore sur Odoo peuvent être accompagnées conjointement par Agitech pour la mise en place de l'ERP."
     },
     {
       "question": "Quelles sont les obligations comptables d'une SRL en Belgique ?",
