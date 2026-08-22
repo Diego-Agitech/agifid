@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+const reader = createReader(process.cwd(), keystaticConfig);
+const posts = (await reader.collections.blog.all())
+  .map((p) => ({ slug: p.slug, ...p.entry }))
+  .filter((p) => p.published)
+  .sort((a, b) => (a.date < b.date ? 1 : -1));
+---
+<Layout
+  htmlLang="fr-BE"
+  lang="fr"
+  pageType="sub"
+  title="Blog — AgiFid"
+  description="Comptabilité, fiscalité et gestion sur Odoo : conseils et actualités de l'équipe AgiFid."
+  canonical="https://agifid.be/blog.html"
+  ogLocale="fr_BE"
+>
+<section class="blog-list-section">
+  <div class="container">
+    <div class="title">
+      <h1>Blog</h1>
+      <h6>Comptabilité, fiscalité et gestion sur Odoo : nos conseils pour piloter votre activité.</h6>
+    </div>
+    <div class="blog-list-grid">
+      {posts.map((post) => (
+        <a class="blog-card" href={`/blog/${post.slug}.html`}>
+          {post.coverImage && <img src={`/assets/img/blog/${post.coverImage}`} alt={post.title} loading="lazy" />}
+          <div class="blog-card-body">
+            <span class="blog-card-date">{new Date(post.date).toLocaleDateString('fr-BE', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+            <h3>{post.title}</h3>
+            <p>{post.excerpt}</p>
+          </div>
+        </a>
+      ))}
+      {posts.length === 0 && <p>Aucun article publié pour le moment.</p>}
+    </div>
+  </div>
+</section>
+</Layout>

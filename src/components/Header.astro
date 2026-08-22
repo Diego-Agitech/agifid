@@ -26,7 +26,7 @@ const logoHref = pageType === 'home' ? (lang === 'en' ? 'index-en.html' : 'index
         <li><a href={`${base}#${strings.whyAnchor}`}>{strings.why}</a></li>
         <li><a href={`${base}#services`}>{strings.services}</a></li>
         <li><a href={`${base}#contact`}>{strings.contact}</a></li>
-        <li><span class="disabled-link">{strings.blog}</span></li>
+        <li><a href="/blog.html">{strings.blog}</a></li>
         <li><a href="https://agitech.io" target="_blank" rel="noopener">{strings.agitech}</a></li>
       </ul>
       {pageType === 'home' && (
