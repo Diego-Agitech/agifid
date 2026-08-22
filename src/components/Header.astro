@@ -7,8 +7,8 @@ export interface Props {
 const { lang, pageType } = Astro.props;
 
 const strings = {
-  fr: { why: 'Pourquoi nous', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech', discuss: 'Discutons', whyAnchor: 'pourquoi' },
-  en: { why: 'Why us', services: 'Services', contact: 'Contact', blog: 'Blog', agitech: 'Agitech', discuss: "Let's talk", whyAnchor: 'why' },
+  fr: { why: 'Pourquoi nous', services: 'Services', contact: 'Contact', blog: 'Actualités', agitech: 'Agitech', discuss: 'Discutons', whyAnchor: 'pourquoi' },
+  en: { why: 'Why us', services: 'Services', contact: 'Contact', blog: 'Insights', agitech: 'Agitech', discuss: "Let's talk", whyAnchor: 'why' },
 }[lang];
 
 // On a sub-page (e.g. merci-formulaire.html) there is no per-language anchor target,
@@ -26,7 +26,7 @@ const logoHref = pageType === 'home' ? (lang === 'en' ? 'index-en.html' : 'index
         <li><a href={`${base}#${strings.whyAnchor}`}>{strings.why}</a></li>
         <li><a href={`${base}#services`}>{strings.services}</a></li>
         <li><a href={`${base}#contact`}>{strings.contact}</a></li>
-        <li><a href="/blog.html">{strings.blog}</a></li>
+        <li><a href="/actualites.html">{strings.blog}</a></li>
         <li><a href="https://agitech.io" target="_blank" rel="noopener">{strings.agitech}</a></li>
       </ul>
       {pageType === 'home' && (

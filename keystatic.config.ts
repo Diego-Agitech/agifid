@@ -32,7 +32,7 @@ export default config({
         'onboarding',
         'contact',
       ],
-      Blog: ['blog'],
+      Actualités: ['blog'],
     },
   },
   singletons: {
@@ -162,10 +162,11 @@ export default config({
   },
   collections: {
     blog: collection({
-      label: 'Articles de blog',
+      label: 'Actualités',
       slugField: 'title',
       path: 'src/content/blog/*',
       format: { contentField: 'content' },
+      previewUrl: '/actualites/{slug}.html',
       columns: ['title', 'date', 'published'],
       schema: {
         title: fields.slug({

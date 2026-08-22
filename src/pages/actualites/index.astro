@@ -13,20 +13,21 @@ const posts = (await reader.collections.blog.all())
   htmlLang="fr-BE"
   lang="fr"
   pageType="sub"
-  title="Blog — AgiFid"
-  description="Comptabilité, fiscalité et gestion sur Odoo : conseils et actualités de l'équipe AgiFid."
-  canonical="https://agifid.be/blog.html"
+  title="Actualités — AgiFid"
+  description="Comptabilité, fiscalité, paie et gestion sur Odoo : nos experts décryptent l'actualité fiscale et comptable et partagent des conseils concrets pour piloter votre entreprise."
+  canonical="https://agifid.be/actualites.html"
   ogLocale="fr_BE"
 >
 <section class="blog-list-section">
   <div class="container">
     <div class="title">
-      <h1>Blog</h1>
-      <h6>Comptabilité, fiscalité et gestion sur Odoo : nos conseils pour piloter votre activité.</h6>
+      <h6 class="eyebrow">Actualités</h6>
+      <h1>Comptabilité, fiscalité & Odoo : nos conseils d'experts</h1>
+      <p>Notre équipe de comptables et d'experts Odoo décrypte l'actualité fiscale et comptable belge, et partage des conseils concrets pour vous aider à piloter votre entreprise en toute sérénité — sans jargon inutile.</p>
     </div>
     <div class="blog-list-grid">
       {posts.map((post) => (
-        <a class="blog-card" href={`/blog/${post.slug}.html`}>
+        <a class="blog-card" href={`/actualites/${post.slug}.html`}>
           {post.coverImage && <img src={`/assets/img/blog/${post.coverImage}`} alt={post.title} loading="lazy" />}
           <div class="blog-card-body">
             <span class="blog-card-date">{new Date(post.date).toLocaleDateString('fr-BE', { day: 'numeric', month: 'long', year: 'numeric' })}</span>

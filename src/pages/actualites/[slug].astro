@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogContent from '../../components/BlogContent';
+import { createReader } from '@keystatic/core/reader';
+import keystaticConfig from '../../../keystatic.config';
+
+export async function getStaticPaths() {
+  const reader = createReader(process.cwd(), keystaticConfig);
+  const posts = await reader.collections.blog.all();
+  return posts
+    .filter((p) => p.entry.published)
+    .map((p) => ({ params: { slug: p.slug }, props: { entry: p.entry } }));
+}
+
+function extractText(nodes: any[]): string {
+  return nodes
+    .map((node) => (node.text ?? (node.children ? extractText(node.children) : '')))
+    .join(' ');
+}
+
+const { entry } = Astro.props;
+const content = await entry.content();
+const wordCount = extractText(content).trim().split(/\s+/).filter(Boolean).length;
+const readingTime = Math.max(1, Math.round(wordCount / 200));
+const publishedDate = new Date(entry.date).toLocaleDateString('fr-BE', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const canonical = `https://agifid.be/actualites/${Astro.params.slug}.html`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: entry.title,
+  description: entry.excerpt,
+  datePublished: entry.date,
+  author: { '@type': 'Organization', name: entry.author },
+  publisher: { '@type': 'Organization', name: 'AgiFid' },
+  mainEntityOfPage: canonical,
+};
+---
+<Layout
+  htmlLang="fr-BE"
+  lang="fr"
+  pageType="sub"
+  title={`${entry.title} — Actualités AgiFid`}
+  description={entry.excerpt}
+  canonical={canonical}
+  ogLocale="fr_BE"
+  jsonLd={jsonLd}
+>
+<section class="blog-article-section">
+  <div class="container-sm">
+    <a class="blog-back-link" href="/actualites.html">← Retour aux actualités</a>
+    <div class="blog-article-meta">
+      <span class="blog-card-date">{publishedDate}</span>
+      <span class="blog-article-dot">·</span>
+      <span>{entry.author}</span>
+      <span class="blog-article-dot">·</span>
+      <span>{readingTime} min de lecture</span>
+    </div>
+    <h1>{entry.title}</h1>
+    <p class="blog-article-excerpt">{entry.excerpt}</p>
+    {entry.coverImage && <img class="blog-article-cover" src={`/assets/img/blog/${entry.coverImage}`} alt={entry.title} loading="lazy" />}
+    <div class="blog-article-body">
+      <BlogContent document={content} />
+    </div>
+    <div class="blog-article-cta">
+      <h5>Une question sur votre comptabilité ?</h5>
+      <p>Parlez-en directement avec un expert AgiFid, sans blabla commercial.</p>
+      <a class="btn btn-violet" href="/index.html#contact">Parler à un expert</a>
+    </div>
+  </div>
+</section>
+</Layout>
