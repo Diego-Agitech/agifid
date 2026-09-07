@@ -245,10 +245,10 @@ export default config({
         role: fields.select({
           label: 'Rôle',
           options: [
-            { label: 'Expert Comptable', value: 'Expert Comptable' },
+            { label: 'Expert Comptable ITAA', value: 'Expert Comptable ITAA' },
             { label: 'Expert Odoo', value: 'Expert Odoo' },
           ],
-          defaultValue: 'Expert Comptable',
+          defaultValue: 'Expert Comptable ITAA',
         }),
         order: fields.integer({
           label: 'Position (1 = premier affiché)',

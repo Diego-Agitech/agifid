@@ -13,7 +13,8 @@
         { "included": true, "text": "1h commentaire des comptes annuels" },
         { "included": true, "text": "2h optimisation fiscale & rémunération du dirigeant" },
         { "included": true, "text": "Bonus client exemplaire" },
-        { "included": false, "text": "Payroll" },
+        { "included": true, "text": "Génération des fiches de salaire pour un dirigeant" },
+        { "included": false, "text": "Encodage des fiches de salaire de vos employés" },
         { "included": false, "text": "Contrôle de gestion" }
       ]
     },
@@ -28,7 +29,8 @@
         { "included": true, "text": "2h commentaire des comptes annuels" },
         { "included": true, "text": "3h optimisation fiscale & rémunération du dirigeant" },
         { "included": true, "text": "Bonus client exemplaire" },
-        { "included": true, "text": "Payroll inclus (≤ 5 travailleurs)" },
+        { "included": true, "text": "Génération des fiches de salaire pour un dirigeant" },
+        { "included": true, "text": "Encodage des fiches de salaire de vos employés" },
         { "included": true, "text": "Contrôle de gestion" }
       ]
     },
@@ -43,7 +45,8 @@
         { "included": true, "text": "2h commentaire des comptes annuels" },
         { "included": true, "text": "3h optimisation fiscale & rémunération du dirigeant" },
         { "included": true, "text": "Bonus client exemplaire" },
-        { "included": true, "text": "Payroll inclus (≤ 5 travailleurs)" },
+        { "included": true, "text": "Génération des fiches de salaire pour un dirigeant" },
+        { "included": true, "text": "Encodage des fiches de salaire de vos employés" },
         { "included": true, "text": "Contrôle de gestion" }
       ]
     }
